@@ -1,0 +1,72 @@
+.grouptitle {
+    color: white;
+    padding: 2px;
+    border: 2px;
+    width: 200px;
+}
+
+label {
+    margin: 0px;
+    padding-top: 3px;
+    font-size: small;
+}
+
+.readonly {
+    backgrund: #dddddd;
+}
+
+/* main map canvas */
+.map {
+    float: left;
+    width: 70%; 
+    height: 600px; /* actually 100%, but this needs to be set dynamicly ... ? */
+}
+
+.sidebar {
+    float: right; 
+    width: 30%; 
+    height: 100%; 
+    max-height: 100%;
+}
+
+.sideform {
+    border: 3px; 
+    border-style: solid; 
+    border-radius: 5px; 
+    width: 100%; 
+    /* background-color: #7f7fff; */
+    padding: 5px;
+}
+
+.sidetree {
+    width: 100%;
+    border: 3px;
+    border-style: solid; 
+    border-radius: 5px; 
+    padding: 5px;
+}
+
+.formhead {
+    widht: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.formline {
+    width: 100%;
+}
+
+.formbuttons {
+    text-align: center; 
+    padding-top: 5px;
+}
+
+.latlon {
+    width: 48%; 
+    text-align: center;
+}
+
+
+.readonly {
+    background-color: #dddddd;
+}
