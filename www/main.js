@@ -697,7 +697,7 @@ function iconOptions(default_icon)
                     icons: [
 	["shopping-basket", "Einkaufen"],
 	["shopping-cart",   "Supermarkt"],
-	["percent",         "Discounter"],
+	["cart-plus",         "Discounter"],
 ] }, { name: "Nahverkehr", icons: [
 	["bus",             "Bus"],
 	["taxi",            "Taxi"],
@@ -711,12 +711,16 @@ function iconOptions(default_icon)
 	["plus-square",     "Kirche"],
 	["moon-o",          "Moschee"],
 ] }, { name: "Essen & Trinken", icons: [
-	["coffee",          "Cafe"],
-	["cutlery",         "Restaurant"],
+        ["beer",            "Gaststätte"],
+        ["coffee",          "Cafe"],
+        ["cutlery",         "Restaurant"],
+        ["glas",            "Bar"],
+] }, { name: "Unterhaltung", icons: [
+        ["music",           "Club/Disco"],
+	["film",            "Kino"],
 ] }, { name: "Verschiedenes", icons: [
 	["book",            "Bücherei"],
 	["envelope-o",      "Post"],
-	["film",            "Kino"],
 	["graduation-cap",  "Schule"],
 	["bed",             "Unterkunft"],
 	["info",            "Information"],
@@ -726,7 +730,9 @@ function iconOptions(default_icon)
 	["bicycle",         "Fahrrad"],
 	["car",             "Auto"],
 	["money",           "Bank"],
-    ]}];
+        ["institution",     "Behörde"],
+        ["users",           "Treffpunkt"],
+]}];
 
     var html = "<select id='form_icon'>";
     for (var i in icons) {
