@@ -710,7 +710,7 @@ function iconOptions(default_icon)
         ["beer",            "Gaststätte"],
         ["coffee",          "Cafe"],
         ["cutlery",         "Restaurant"],
-        ["glas",            "Bar"],
+        ["glass",           "Bar"],
 ] }, { name: "Unterhaltung", icons: [
         ["music",           "Club/Disco"],
 	["film",            "Kino"],
