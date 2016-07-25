@@ -63,7 +63,7 @@ function mapInit()
    
     // load/open button 
     L.easyButton('fa-folder-open-o fa-lg',
-		 function(btn, map) { importExample(); },
+		 function(btn, map) { $('#loadfile').trigger('click');},
 		 "load a map"
 		).addTo(map);
    
@@ -808,12 +808,21 @@ function exportJSON()
 
 function importJSON(jsonStr)
 {
+    try {
+       jsonData = JSON.parse(jsonStr);
+    } catch (e) {
+       alert("Invalid file format");
+    }
+
+    // TODO add more checks
+    
     tree.clear();
 
-    jsonData = JSON.parse(jsonStr);
-
-    console.log(jsonData);
-    
+    $("#side_title").html(jsonData.title);
+    center_lat = jsonData.center_lat;
+    center_lon = jsonData.center_lon;
+    center_marker.setLatLng([center_lat, center_lon]);
+       
     for (var key in jsonData.nodes) {
 	var newGroup = groupAdd(
 	    tree,
@@ -835,161 +844,6 @@ function importJSON(jsonStr)
 
     adjustBounds(true);
 }
-
-function importExample()
-{
-    importJSON(`{
-    "title": "Umgebungsplan Almhallen",
-    "nodes": [
-        {
-            "text": "Nahverkehr",
-            "color": "#0000ff",
-            "icon": "bus",
-            "nodes": [
-                {
-                    "text": "Rudolf-Oetker-Halle",
-                    "icon": "bus",
-                    "lat": "52.02893089648879",
-                    "lon": "8.514361381530762"
-                },
-                {
-                    "text": "Siegfriedplatz",
-                    "icon": "subway",
-                    "lat": "52.02791432150677",
-                    "lon": "8.52212905883789"
-                },
-                {
-                    "text": "Melanchtonstraße",
-                    "icon": "bus",
-                    "lat": "52.03278575007463",
-                    "lon": "8.521056175231934"
-                }
-            ]
-        },
-        {
-            "text": "Gesundheit",
-            "color": "#ff0000",
-            "icon": "medkit",
-            "nodes": [
-                {
-                    "text": "Franziskus-Hospital",
-                    "icon": "hospital-o",
-                    "lat": 52.02329323487357,
-                    "lon": 8.52313756942749
-                },
-                {
-                    "text": "Apotheke im Westen",
-                    "icon": "medkit",
-                    "lat": 52.02515493006375,
-                    "lon": 8.523234128952026
-                },
-                {
-                    "text": "Lorbeer-Apotheke",
-                    "icon": "medkit",
-                    "lat": "52.0271188684733",
-                    "lon": "8.525728583335876"
-                }
-            ]
-        },
-        {
-            "text": "Einkaufen",
-            "color": "#00ff00",
-            "icon": "shopping-cart",
-            "nodes": [
-                {
-                    "text": "Centralkauf",
-                    "icon": "shopping-cart",
-                    "lat": 52.028851683684024,
-                    "lon": 8.523738384246826
-                },
-                {
-                    "text": "Bäckerei Pörschke",
-                    "icon": "shopping-basket",
-                    "lat": 52.026765695993454,
-                    "lon": 8.520787954330444
-                },
-                {
-                    "text": "Edeka",
-                    "icon": "shopping-cart",
-                    "lat": 52.02645873073138,
-                    "lon": 8.527573943138123
-                },
-                {
-                    "text": "Lidl",
-                    "icon": "percent",
-                    "lat": "52.03069004470026",
-                    "lon": "8.527675867080688"
-                },
-                {
-                    "text": "Aldi",
-                    "icon": "percent",
-                    "lat": 52.02651814352718,
-                    "lon": 8.527799248695374
-                }
-            ]
-        },
-        {
-            "text": "Essen",
-            "color": "#ffaa00",
-            "icon": "cutlery",
-            "nodes": [
-                {
-                    "text": "Kebap House",
-                    "icon": "cutlery",
-                    "lat": "52.02819817269086",
-                    "lon": "8.516625165939331"
-                }
-            ]
-        },
-        {
-            "text": "Treffpunkte",
-            "color": "#cbca20",
-            "icon": "info",
-            "nodes": [
-                {
-                    "text": "Bürgerwache",
-                    "icon": "info",
-                    "lat": "52.02856453609055",
-                    "lon": "8.522745966911316"
-                },
-                {
-                    "text": "FrauenKulturZentrum",
-                    "icon": "info",
-                    "lat": 52.030686744299345,
-                    "lon": 8.529489040374756
-                }
-            ]
-        },
-        {
-            "text": "Religion",
-            "color": "#000000",
-            "icon": "plus-square",
-            "nodes": [
-                {
-                    "text": "Johanniskirche (ev.)",
-                    "icon": "plus-square",
-                    "lat": 52.03112239511054,
-                    "lon": 8.525058031082153
-                },
-                {
-                    "text": "St. Liborius Kirche (kat.)",
-                    "icon": "plus-square",
-                    "lat": 52.03043591311899,
-                    "lon": 8.51987600326538
-                },
-                {
-                    "text": "Moschee",
-                    "icon": "moon-o",
-                    "lat": 52.0344622436524,
-                    "lon": 8.533802032470703
-                }
-            ]
-        }
-    ]
-}`);
-
-}
-
 
 /* -------------------------------------------------------------------------------------------- */
 
@@ -1176,6 +1030,23 @@ function clearForm()
 
 /* -------------------------------------------------------------------------------------------- */
 
+function FileLoad(evt)
+{
+    var f = evt.target.files[0]; 
+    
+    if (f) {
+	var r = new FileReader();
+	r.onload = function(e) { 
+	    var contents = e.target.result;
+	    importJSON(contents);
+	}
+	r.readAsText(f);
+    } else { 
+	alert("Failed to load file");
+    }}
+
+/* -------------------------------------------------------------------------------------------- */
+
 
 $(function() {
     $("#map").height(window.innerHeight);
@@ -1188,3 +1059,5 @@ $(function() {
 
     titleForm();
 });
+
+
