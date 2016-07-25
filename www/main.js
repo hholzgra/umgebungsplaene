@@ -992,7 +992,7 @@ function overpassImport()
 function saveMap()
 {
     var blob = new Blob([exportJSON()], {type: "text/plain;charset=utf-8"});
-    saveAs(blob, "map-edit.txt");
+    saveAs(blob, sanitizeFilename($("#side_title").html())+".map");
 }
 
 /* -------------------------------------------------------------------------------------------- */
@@ -1047,6 +1047,14 @@ function FileLoad(evt)
 
 /* -------------------------------------------------------------------------------------------- */
 
+function sanitizeFilename(name)
+{
+    var filename = name.replace(/[^a-z0-9]/gi, '_');
+    
+    return filename;
+}
+
+/* -------------------------------------------------------------------------------------------- */
 
 $(function() {
     $("#map").height(window.innerHeight);
