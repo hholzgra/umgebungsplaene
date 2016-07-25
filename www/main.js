@@ -286,7 +286,7 @@ function groupSubmit()
 
         // update color on all related POI markers
 	node.visit( function (node) {
-	    node.data.my_marker.setIcon(L.MakiMarkers.icon({color: $("#form_color").val(), size: "m"}));
+	    node.data.my_marker.setIcon(getMarkerIcon($("#form_color").val(), ''));
 	});
 
         // set tree node inactive so that the user can activate it again
@@ -411,9 +411,8 @@ function poiAdd(tree, group, name, icon, lat, lon)
 			     });
 
     node.makeVisible();
-    var markerIcon = L.MakiMarkers.icon({color: group.data.my_color,
-					 size: "m",
-					});
+    var markerIcon = getMarkerIcon(group.data.my_color, icon);
+
     var marker = L.marker([lat, lon], {icon: markerIcon,
 				       title: name,
 				       draggable: false,
@@ -530,11 +529,8 @@ function poiForm(node)
 
     if (node.isFolder()) {
 	var ll = map.getCenter();
-	
 	new_marker = L.marker([ll.lat, ll.lng],
-			      {icon: L.MakiMarkers.icon({icon: "circle",
-							 color: node.data.my_color,
-							 size: "l"}),
+			      {icon: getMarkerIcon(node.data.my_color, "", true),
 			       title: name,
 			       draggable: true,
 			      });
@@ -584,7 +580,7 @@ function poiForm(node)
 	      <span class='fa fa-trash  fa-stack-1x fa-inverse'></span>
             </span>`;
 
-	node.data.my_marker.setIcon(L.MakiMarkers.icon({icon: 'circle', color: node.parent.data.my_color, size: "l"}));
+	node.data.my_marker.setIcon(getMarkerIcon(node.parent.data.my_color, node.data.my_icon, true));
 	drag_marker = node.data.my_marker;
 	drag_marker.dragging.enable();
 	    
@@ -886,7 +882,7 @@ function treeInit()
 			      },
 			      dragDrop: function(node, data) {
 				  data.otherNode.moveTo(node, data.hitMode);
-				  data.otherNode.data.my_marker.setIcon(L.MakiMarkers.icon({color: node.data.my_color, size: "m"}));
+				  data.otherNode.data.my_marker.setIcon(getMarkerIcon(node.data.my_color, node.data.my_icon));
 			      },
 			  }
 			 });      
@@ -963,7 +959,6 @@ function importNodes(group, query, icon)
 {
     $.getJSON(overpassQuery(query),
 	      function(data) {
-		  console.log(data);
 		  $.each(data.elements, function(key, val) {
 		      var lat, lon;
 		      if ('center' in val) {
@@ -1031,7 +1026,7 @@ function clearForm()
 
 	if ( !node.isFolder() ) {
 	    node.data.my_marker.setLatLng([node.data.my_lat, node.data.my_lon]);
-	    node.data.my_marker.setIcon(L.MakiMarkers.icon({color: node.parent.data.my_color, size: "m"}));
+	    node.data.my_marker.setIcon(getMarkerIcon(node.parent.data.my_color, node.data.my_icon));
 	}
     }
 
@@ -1062,6 +1057,25 @@ function sanitizeFilename(name)
     var filename = name.replace(/[^a-z0-9]/gi, '_');
     
     return filename;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+function getMarkerIcon(color, icon, size)
+{
+    if ((typeof icon == 'undefined') || (icon == '')) {
+	icon = "circle";
+    }
+
+    if (typeof size == 'undefined') {
+	size = false;
+    }
+
+    return L.VectorMarkers.icon({ icon        : size == true ? "spinner" : icon,
+				  markerColor : color,
+				  iconColor   : "white",
+				  spin        : size == true, 
+    });
 }
 
 /* -------------------------------------------------------------------------------------------- */
