@@ -808,6 +808,8 @@ function exportJSON()
 
 function importJSON(jsonStr)
 {
+    clearForm();
+
     try {
        jsonData = JSON.parse(jsonStr);
     } catch (e) {
@@ -973,6 +975,8 @@ function importNodes(group, query, icon)
 function overpassImport()
 {
     var group = false;
+
+    clearForm();
 
     group = groupAdd(tree, "Einkauf", "#00ff00", "shopping-cart");
     importNodes(group, '["shop"="supermarket"]', "shopping-cart");
