@@ -12,7 +12,7 @@ $title = $data["title"];
 $lat = $data["center_lat"];
 $lon = $data["center_lon"];
 
-$prefix = "map-edit";
+$prefix = preg_replace('/[^a-z0-9]/i', '_', $title)."-".strftime("%F-%T");
 
 $min_lat = $lat;
 $min_lon = $lon;
@@ -71,7 +71,7 @@ if ($status) {
   readfile("$tmpdir/out.log");
 } else {
   header('Content-type: application/pdf');
-  header('Content-Disposition: inline; filename="map.pdf"');
+  header('Content-Disposition: inline; filename="'.$prefix.'.pdf"');
 
   readfile("$tmpdir/$prefix.pdf");
 }
