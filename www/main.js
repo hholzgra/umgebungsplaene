@@ -882,7 +882,7 @@ function treeInit()
 			      },
 			      dragDrop: function(node, data) {
 				  data.otherNode.moveTo(node, data.hitMode);
-				  data.otherNode.data.my_marker.setIcon(getMarkerIcon(node.data.my_color, node.data.my_icon));
+				  data.otherNode.data.my_marker.setIcon(getMarkerIcon(data.otherNode.parent.data.my_color, data.otherNode.data.my_icon));
 			      },
 			  }
 			 });      
