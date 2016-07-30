@@ -14,3 +14,6 @@
 
 * download the full package of PDF, JSON, logs(?) as ZIP instead of just the PDF
 
+* landscape/portrait support
+
+* bottom multi-column index support
