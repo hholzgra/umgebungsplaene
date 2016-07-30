@@ -56,7 +56,7 @@ $cmd.= " --language=de_DE.utf8";
 $cmd.= " --layout=single_page_index_side";
 $cmd.= " --orientation=landscape";
 $cmd.= " --paper-format=A1";
-$cmd.= " --style=CartoOSM";
+$cmd.= " --style=Reduced";
 $cmd.= " --poi-file=$tmpdir/poi_file.txt";
 
 chdir("/home/maposmatic/ocitysmap/");
