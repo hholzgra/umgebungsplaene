@@ -70,3 +70,13 @@ label {
 .readonly {
     background-color: #dddddd;
 }
+
+.search-input {
+    font-family:Courier
+}
+
+.search-input,
+.leaflet-control-search {
+    max-width:400px;
+}
+ 
