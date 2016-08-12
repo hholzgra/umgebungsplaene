@@ -61,12 +61,6 @@ function mapInit()
 		 "about this tool"
 		).addTo(map);
    
-    // load/open button 
-    L.easyButton('fa-folder-open-o fa-lg',
-		 function(btn, map) { $('#loadfile').trigger('click');},
-		 "load a map"
-		).addTo(map);
-   
     // POI wizzard button 
     L.easyButton('fa-magic fa-lg',
 		 function(btn, map) { overpassImport(); },
@@ -79,6 +73,12 @@ function mapInit()
 		 "show all markers"
 		).addTo(map);
    
+    // load/open button
+    L.easyButton('fa-folder-open-o fa-lg',
+		 function(btn, map) { $('#loadfile').trigger('click');},
+		 "load a map"
+		).addTo(map);
+
     // save button 
     L.easyButton('fa-floppy-o fa-lg',
 		 function(btn, map) { saveMap(); },
