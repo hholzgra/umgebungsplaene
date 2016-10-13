@@ -929,8 +929,23 @@ function treeInit()
 
 function renderRequest()
 {
-    $("#hidden_data").val(exportJSON());
-    $("#hidden_form").submit();
+    var marker_count = 0;
+
+    for (var folder_id in tree.rootNode.children) {
+
+        var folder = tree.rootNode.children[folder_id];
+
+        for (var node_id in folder.children) {
+            marker_count++;
+        }
+    }
+
+    if (marker_count < 1) {
+        alert("Keine Marker auf der Karte, kein Druck möglich");
+    } else {
+        $("#hidden_data").val(exportJSON());
+        $("#hidden_form").submit();
+    }
 }
 
 /* -------------------------------------------------------------------------------------------- */
