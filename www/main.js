@@ -57,7 +57,7 @@ function mapInit()
 
     // info button - opens manual in new window
     L.easyButton('fa-info fa-lg',
-		 function(btn, map) { window.open("map-doc/map-doc.html"); },
+		 function(btn, map) { window.open("Documentation/map-doc.html"); },
 		 "about this tool"
 		).addTo(map);
    
