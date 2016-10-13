@@ -807,6 +807,64 @@ function exportJSON()
     return JSON.stringify(exportData, null, 4);
 }
 
+function exportGeoJSON()
+{
+    var geoJSON = {
+	type: "FeatureCollection",
+	features: []
+    };
+
+    geoJSON.features.push({
+	type: 'Feature',
+	geometry: {
+	    type: 'Point',
+            coordinates: [parseFloat(center_lon),
+			  parseFloat(center_lat)]
+	},
+	properties: {
+	    title: $("#side_title").html()
+	}
+    });
+
+    for (var folder_id in tree.rootNode.children) {
+
+	var folder = tree.rootNode.children[folder_id];
+	
+	var currentFolder = {
+	    text:  folder.data.my_txt,
+	    color: folder.data.my_color,
+	    icon:  folder.data.my_icon,
+	    nodes: [],
+	};
+
+	var features = [];
+	
+	for (var node_id in folder.children) {
+	    var node = folder.children[node_id];
+	    
+	    features.push({
+		type: 'Feature',
+		geometry: {
+		    type: 'Point',
+		    coordinates: [parseFloat(node.data.my_lon),
+				  parseFloat(node.data.my_lat)]
+		},
+		properties: {
+		    title: node.data.my_txt,
+		    icon:  node.data.my_icon
+		}	
+	    });
+	}
+
+	geoJSON.features.push({
+	    type: 'FeatureCollection',
+	    features: features
+	});
+    }
+
+    return JSON.stringify(geoJSON, null, 4);
+}
+
 
 function importJSON(jsonStr)
 {
