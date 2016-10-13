@@ -40,7 +40,7 @@ $min_lon -= $d_lon / 20;
 $max_lon += $d_lon / 20;
 
 $cmd = "";
-$cmd.= " ./render.py";
+$cmd.= " /home/maposmatic/ocitysmap/render.py";
 $cmd.= " --config=/vagrant/ocitysmap.conf";
 $cmd.= sprintf(" --bounding-box=%.6f,%.6f %.6f,%.6f ", $min_lat, $min_lon, $max_lat, $max_lon);
 $cmd.= " --title='$title'";
