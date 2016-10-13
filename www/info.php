@@ -19,14 +19,8 @@ $min_lon = $lon;
 $max_lat = $lat;
 $max_lon = $lon;
 
-$desc = "@$title;$lat,$lon\n";
-
 foreach ($data["nodes"] as $folder) {
-  $desc .= "$folder[text];$folder[color];$folder[icon]\n";
-
   foreach ($folder["nodes"] as $node) {
-    $desc .= "  $node[text];$node[lat],$node[lon];$node[icon]\n";
-
     $min_lat = min($min_lat, $node['lat']);  
     $min_lon = min($min_lon, $node['lon']);  
     $max_lat = max($max_lat, $node['lat']);  
@@ -34,7 +28,7 @@ foreach ($data["nodes"] as $folder) {
   }
 }
 
-file_put_contents("$tmpdir/poi_file.txt", $desc);
+file_put_contents("$tmpdir/poi_file.txt", $_REQUEST["data"]);
 
 $d_lat = $max_lat - $min_lat;
 $d_lon = $max_lon - $min_lon;
