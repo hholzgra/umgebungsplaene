@@ -53,6 +53,8 @@ $cmd.= " --paper-format=A1";
 $cmd.= " --style=Reduced";
 $cmd.= " --poi-file=$tmpdir/poi_file.txt";
 
+file_put_contents("$tmpdir/cmdline.txt", $cmd);
+
 chdir("/home/maposmatic/ocitysmap/");
 
 system("sudo -u maposmatic $cmd > $tmpdir/out.log 2> $tmpdir/err.log", $status);
