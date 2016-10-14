@@ -7,6 +7,14 @@ chmod($tmpdir, 0777);
 
 $data = json_decode($_REQUEST["data"], true);
 
+switch($data["base_layer"]) {
+  case "Humanitarian": $style = "Humanitarian";   break;
+  case "HikeBikeMap":  $style = "HikeBikeMap";    break;
+  case "OpenTopoMap":  $style = "OpenTopoMap";    break;
+  case "German":       $style = "GermanCartoOSM"; break;
+  default:             $style = "Reduced";        break;
+}
+
 $title = $data["title"];
 
 $lat = $data["center_lat"];
@@ -50,7 +58,7 @@ $cmd.= " --language=de_DE.utf8";
 $cmd.= " --layout=single_page_index_side";
 $cmd.= " --orientation=landscape";
 $cmd.= " --paper-format=A1";
-$cmd.= " --style=Reduced";
+$cmd.= " --style=$style";
 $cmd.= " --poi-file=$tmpdir/poi_file.txt";
 
 file_put_contents("$tmpdir/cmdline.txt", $cmd);

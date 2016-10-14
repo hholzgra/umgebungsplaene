@@ -23,19 +23,35 @@ var center_marker = false;
 // 
 var drag_marker = false;
 
+// 
+var activeLayers = false;
+
 // set up the actual map
 function mapInit()
 {
+    var osmLayer      = L.tileLayer.provider('OpenStreetMap.Mapnik');
+    var germanLayer   = L.tileLayer.provider('OpenStreetMap.DE');
+    var hotLayer      = L.tileLayer.provider('OpenStreetMap.HOT');
+    var hikeBikeLayer = L.tileLayer.provider('HikeBike.HikeBike');
+    // var openTopoLayer = L.tileLayer.provider('OpenTopoMap');
+    
     map = L.map('map', { scrollWheelZoom: "center",
 			 doubleClickZoom: "center",
+                         layers:          osmLayer,
 		       });
-    
-    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-    var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});		
-    
+
     map.setView(new L.LatLng(center_lat, center_lon), 12);
-    map.addLayer(osm);
+
+    var baseLayers = {
+                       'OSM'   :       osmLayer, 
+                       'German':       germanLayer,
+                       'Humanitarian': hotLayer,
+                       'HikeBikeMap':  hikeBikeLayer,
+                       // 'OpenTopoMap':  openTopoLayer,
+                     };
+
+    activeLayers = L.control.activeLayers(baseLayers, {});
+    activeLayers.addTo(map);
 
     // all markers get tracked in this feature group
     map_markers = L.featureGroup();
@@ -770,10 +786,13 @@ function exportData()
 
 function exportJSON()
 {
+    var layerInfo = activeLayers.getActiveBaseLayer();
+
     var exportData = {
 	title: $("#side_title").html(),
 	center_lat: center_lat,
 	center_lon: center_lon,
+        base_layer: layerInfo.name,
 	nodes: [],
     };
     

@@ -31,6 +31,8 @@
     "jquery.fancytree": "fancytree#^2.18.0",
     "bootstrap-select": "^1.10.0",
     "file-saver": "FileSaver#^1.3.2",
-    "Leaflet.vector-markers": "git://github.com/kbooz/Leaflet.vector-markers.git#patch-1"
+    "Leaflet.vector-markers": "git://github.com/kbooz/Leaflet.vector-markers.git#patch-1",
+    "leaflet-providers": "^1.1.15",
+    "leaflet.active-layers": "leaflet.activelayers#^0.3.0"
   }
 }
