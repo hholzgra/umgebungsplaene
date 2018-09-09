@@ -55,6 +55,7 @@ $max_lon += $d_lon / 20;
 
 $data = ['title'       => $title
 	,'style'       => 'CartoOSM'
+	,'layout'      => 'single_page_index_side'
 	,'paper_size'  => 'Din A1'
 	,'orientation' => 'landscape'
 	,'bbox_top'    => $max_lat
@@ -64,21 +65,9 @@ $data = ['title'       => $title
         ];
 
 
-$r = api_call($base_url."jobs/", $data);
+$r = api_call($base_url."jobs/", $data, "$tmpdir/poi_file.txt");
 
-$job_id = $r->id;
-
-$job_status = 0;
-
-while ($job_status < 2) {
-        sleep(15);
-
-        $r = api_call($base_url."jobs/".$job_id);
-
-        $job_status = $r->status;
-}
-
-header("Location: ".$r->files->pdf);
+header("Location: ".$r->interactive);
 
 
 
@@ -88,7 +77,7 @@ header("Location: ".$r->files->pdf);
 
 
 
-function api_call($url, $data = null)
+function api_call($url, $data = null, $file = null)
 {
   $request = new HTTP_Request2($url);
 
@@ -98,8 +87,10 @@ function api_call($url, $data = null)
         $body = json_encode($data);
 
         $request->setMethod(HTTP_Request2::METHOD_POST)
-                ->setHeader('Content-type: application/json; charset=utf-8')
-                ->setBody($body);
+	        ->addPostParameter('job', $body);
+	if($file !== null) {
+		 $request->addUpload('poi_file', $file, basename($file), 'application/json');
+	}
   }
 
   return json_decode($request->send()->getBody());
