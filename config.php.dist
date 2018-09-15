@@ -1,0 +1,4 @@
+<?php
+
+$base_url = 'https://maposmatic.osm-baustelle.de/apis/';
+

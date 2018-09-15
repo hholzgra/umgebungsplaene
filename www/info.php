@@ -2,9 +2,12 @@
 
 require_once 'HTTP/Request2.php';
 
-$base_url = 'http://localhost/apis/';
+$base_url = 'https://maposmatic.osm-baustelle.de/apis/';
+
+include '../config.php';
 
 $tmpdir=tempnam(sys_get_temp_dir(),'');
+
 if (file_exists($tmpdir)) { unlink($tmpdir); }
 mkdir($tmpdir);
 chmod($tmpdir, 0777);
@@ -67,6 +70,7 @@ $data = ['title'       => $title
 
 
 $r = api_call($base_url."jobs/", $data, "$tmpdir/poi_file.txt");
+
 
 header("Location: ".$r->interactive);
 
