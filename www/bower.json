@@ -9,7 +9,7 @@
     "osm"
   ],
   "license": "MIT",
-  "homepage": "http://umgebungsplaene.osm-baustelle.de/",
+  "homepage": "https://umgebungsplaene.osm-baustelle.de/",
   "private": true,
   "ignore": [
     "**/.*",
