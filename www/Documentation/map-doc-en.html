@@ -429,51 +429,58 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_festlegen_des_standorts">1. Festlegen des Standorts</a></li>
-<li><a href="#_die_karten_überschrift">2. Die Karten-Überschrift</a></li>
-<li><a href="#_kategorien_anlegen">3. Kategorien anlegen</a></li>
-<li><a href="#_markierungen_anlegen">4. Markierungen anlegen</a></li>
-<li><a href="#_wichtige_punkte_automatisch_ermitteln">5. Wichtige Punkte automatisch ermitteln</a></li>
-<li><a href="#_punkte_bearbeiten">6. Punkte bearbeiten</a></li>
-<li><a href="#_alle_markierungen_anzeigen">7. Alle Markierungen anzeigen</a></li>
-<li><a href="#_speichern_und_laden">8. Speichern und Laden</a></li>
-<li><a href="#_karte_erstellen">9. Karte erstellen</a></li>
+<li><a href="#_setting_the_central_point">1. Setting the central point</a></li>
+<li><a href="#_the_map_title">2. The map title</a></li>
+<li><a href="#_creating_a_marker_category">3. Creating a marker category</a></li>
+<li><a href="#_placing_a_marker">4. Placing a marker</a></li>
+<li><a href="#_automatic_poi_marker_placement">5. Automatic POI marker placement</a></li>
+<li><a href="#_editing_markers">6. Editing markers</a></li>
+<li><a href="#_show_all_markers">7. Show all markers</a></li>
+<li><a href="#_saving_and_loading">8. Saving and loading</a></li>
+<li><a href="#_create_the_printable_map">9. Create the printable map</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_festlegen_des_standorts">1. Festlegen des Standorts</h2>
+<h2 id="_setting_the_central_point">1. Setting the central point</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-1.png" alt="map edit 1"></span></p>
 </div>
 <div class="paragraph">
-<p>Als erstes muss der Punkt festgelegt werden für den der Umgebungsplan erstellt werden soll.
-Zu Beginn wird dazu ein blau unterlegtes Formular in der Seitenleiste und eine Fadenkreuz-förmige
-Markierung auf der Karte eingeblendet.</p>
+<p>The first thing to do is to set the central point for which you want to
+create a neighbourhood plan. You will see a blue form in the side bar titled
+"Standort" and a croshair marker on the slippy map.</p>
 </div>
 <div class="paragraph">
-<p>Die Markierung kann auf drei verschiedene Arten zur gewünschten Position bewegt werden:</p>
+<p>You can move the crosshair marker to the desired spot in three different
+ways:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>durch direktes Ziehen mit der Maus kann die Markierung an die gewünschte Stelle verschoben werden</p>
+<p>by dragging the markrer to the desired position with the mouse</p>
 </li>
 <li>
-<p>bei Bewegungen der Karte wird die Markierung nach jeder Bewegung auf den aktuellen Mittelpunkt des sichtbaren Bereichs verschoben</p>
+<p>by moving the map while the marker stays in the center of the map area
+until the desired spot is below the marker</p>
 </li>
 <li>
-<p>wenn ein Objekt über die Suche ausgewählt wird dann wird auch die Markierung auf diese Position gesetzt</p>
+<p>by doing a search and selecting one of the found objects, the marker
+will then be set to the position of the selected object</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Sobald die gewünschte Position gewählt ist kann das Formular mit [/] geschlossen werden. Die Position der Markierung wird damit fixiert. Wenn die Markierung später noch einmal verschoben werden soll kann das Formular durch anklicken der Markierung erneut geöffnet werden.</p>
+<p>When you have found the desired position you can close the form with
+the 🗹 button. The position of the marker is now fixed. To change its
+position again you can click on the crosshair marker to re-open the
+form.</p>
 </div>
 <div class="paragraph">
-<p>In der fertigen Umgebungskarte wird die Position mit einem roten Kreis gekennzeichnet:</p>
+<p>On the printed map the central point position will be marked with a
+red "you are here" circle.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/center.png" alt="center"></span></p>
@@ -481,16 +488,17 @@ Markierung auf der Karte eingeblendet.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_die_karten_überschrift">2. Die Karten-Überschrift</h2>
+<h2 id="_the_map_title">2. The map title</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-2.png" alt="map edit 2"></span></p>
 </div>
 <div class="paragraph">
-<p>Über das anfangs eingeblendete Formular wird auch die Überschrift der Karte festgelegt.</p>
+<p>The map title can be set via the "Name:" field of the central point form .</p>
 </div>
 <div class="paragraph">
-<p>Auf der fertigen Karte erscheint diese links oben in der Titelleiste neben dem "Refugees welcome" Logo:</p>
+<p>On the printed map the given title will be shown in the blue title bar,
+right next to the "Refugees welcome" logo:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/titel.png" alt="titel"></span></p>
@@ -498,104 +506,112 @@ Markierung auf der Karte eingeblendet.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_kategorien_anlegen">3. Kategorien anlegen</h2>
+<h2 id="_creating_a_marker_category">3. Creating a marker category</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-3.png" alt="map edit 3"></span></p>
 </div>
 <div class="paragraph">
-<p>Die Markierungen auf der Karte werden in Kategorien mit jeweils eigener Überschrift verwaltet.
-Mit dem [+] in der rechten oberen Ecke können neue Kategorien angelegt werden.</p>
+<p>The map markers are organized into categories, each having its own
+category title and marker color scheme. With the [+] button in the
+upper right corner you can create new categories.</p>
 </div>
 <div class="paragraph">
-<p>Jede Kategorie bekommt eine Überschrift, eine Farbe für die Markierungen dieser Kategorie
-und ihren Überschriftsbalken, und ein Icon das ebenfalls im Überschrifts-Balken angezeigt
-wird.</p>
+<p>Each category gets its own title, a distinct color used for the
+markers and the category title bar, and an icon to be shown in
+the title bar next to the title.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-4.png" alt="map edit 4"></span></p>
 </div>
 <div class="paragraph">
-<p>Die Farbeingabe sieht je nach Browser unterschiedlich aus, hier sehen wir das Eingabewerkzeug
-in Google Chrome &#8230;&#8203;</p>
+<p>The color picker may look differently depending on which web browser
+is used, here you see what it looks like in Google Chrome:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-5.png" alt="map edit 5"></span></p>
 </div>
 <div class="paragraph">
-<p>Das Icon kann aus einer Liste vorgegebener Symbole ausgewählt werden.</p>
+<p>The category icon can be selected from a list of predefined symbols.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_markierungen_anlegen">4. Markierungen anlegen</h2>
+<h2 id="_placing_a_marker">4. Placing a marker</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-7.png" alt="map edit 7"></span></p>
 </div>
 <div class="paragraph">
-<p>Nachdem mindestens eine Kategorie angelegt ist können nun die eigentlichen Markierungen
-angelegt werden. Hierzu kann mit der rechten Maustaste (oder mit langem Drücken auf Handys oder
-Tablets) ein Kontext-Menü aktiviert werden, in diesen gibt es dann einen Menüpunkt "Add POI".</p>
+<p>After having created at least one category it is now possible to
+place actual markers for points of interest. For this you need to
+click on the category title with the right mouse button, or long-press
+the category title when using a touch screen. This will open a context
+menu in which you see a menu item "Add POI"</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-7.png" alt="map edit 7"></span></p>
 </div>
 <div class="paragraph">
-<p>Jede Markierung bekommt ihren eigenen Titel und ihr eigenes Symbolbild für die Seitenleiste.</p>
+<p>For each marker a name and a symbol icon can be set to be shown in
+the sidebar of the printed map.</p>
 </div>
 <div class="paragraph">
-<p>Die Koordinaten für die Markierung werden zwar im Formular mit angezeigt, können aber nur
-durch Positionierung des Markierungs-Symbols geändert werden. Die Markierung wird zunächst
-in der Mitte des aktuellen Kartenausschnitts positioniert und kann dann, wie bereis oben
-beim Standort-Fadenkreuz beschrieben, an die richtige Position verschoben werden.</p>
+<p>Initially a new marker is shown in the middle of the map, like with the
+center marker at the beginning you can either drag the marker to the
+desired position, or move the slippy map below it until the tip of
+the marker is over the desired position.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-8.png" alt="map edit 8"></span></p>
 </div>
 <div class="paragraph">
-<p>Nachdem mindestens eine Markierung erstellt wurde erscheint auf der Karte ein blau
-umrandetes Rechteck. Dieses zeigt den Bereich an der später auf jeden Fall auf der
-gedruckten Karte erscheinen wird. Da der Bereich für die eigentliche Karte im Druck
-in etwa quadratisch ist werden später noch Bereiche links und rechts bzw. ober- und
-unterhalb dieses Rechtecks mit auf der gedruckten Karte erscheinen, je nachdem ob
-der umrandete Bereich zu hoch oder zu flach ausgefallen ist.</p>
+<p>After having placed at least one marker a blue rectangle outline will
+appear on the map. This is showing the area guaranteed to be visible
+on the printed map, so that all markers can be seen. As the actual
+map area on the printed map is more or less square the actually printed
+area will be extended either vertically or horizontally, depending on
+whether the marked area is rather wide or tall.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_wichtige_punkte_automatisch_ermitteln">5. Wichtige Punkte automatisch ermitteln</h2>
+<h2 id="_automatic_poi_marker_placement">5. Automatic POI marker placement</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-9.png" alt="map edit 9"></span></p>
 </div>
 <div class="paragraph">
-<p>Mit dem "Zauberstab"-Symbol können einige wichtige Punkte automatisch ermittelt
-werden statt sie von Hand einzutragen, dies sind zur Zeit:</p>
+<p>The "wizzard stick" icon in the icon bar on the left some typical marker
+categories are auto-generated and filled with markers for some typical
+types of POIs located in the currently visible map area.</p>
+</div>
+<div class="paragraph">
+<p>For now these are:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Krankenhäuser</p>
+<p>hospitals</p>
 </li>
 <li>
-<p>Apotheken</p>
+<p>pharmacies</p>
 </li>
 <li>
-<p>Supermärkte</p>
+<p>supermarkets</p>
 </li>
 <li>
-<p>Kirchen (nur evangelische und katholische) und Moscheen</p>
+<p>churches (only protestant and catholic) and mosques</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Es werden alle entsprechenden bekannten Einträge für den gerade sichtbaren
-Kartenbereich mittels Overpass API ermittelt, dies kann je nach Größe des
-Kartenausschnitts ein paar Sekunden dauern.</p>
+<p>The suitable marker entries for the visible map area are determined via
+a live query using the Overpass API, so depending on the visible area this
+may take a few seconds.</p>
 </div>
 <div class="paragraph">
-<p>Das Endergebnis kann dann zB. so aussehen.</p>
+<p>After invoking the wizzard the result may e.g. look like this:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-10.png" alt="map edit 10"></span></p>
@@ -603,89 +619,91 @@ Kartenausschnitts ein paar Sekunden dauern.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_punkte_bearbeiten">6. Punkte bearbeiten</h2>
+<h2 id="_editing_markers">6. Editing markers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Inbsesondere nach der automatischen Ermittlung, aber natürlich auch sonst, kann
-es vorkommen dass man Markierungen wieder entfernen möchte. Hierzu gibt es zwei
-Möglichkeiten:</p>
+<p>You may, especially after using the wizzard to auto-generate markers, want
+to be able to remove an already created marker. This can be done in two
+ways.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-11.png" alt="map edit 11"></span></p>
 </div>
 <div class="paragraph">
-<p>Jeder Eintrag hat ein eigenes Kontext-Meü (über Rechtsklick bzw. langes Drücken
-auf Touchscreens) über dass der Eintrag wieder gelöscht werden kann. Hiermit
-ist sowohl das Löschen einzelner Einträge möglich als auch das Entfernen ganzer
-Kategorien incl. aller Markierungen dieser Kategorie.</p>
+<p>Each entry in the tree has its own context menu which opens when doing a
+right-click on the entry, or when doing a long press on it on a touch screen.
+The options in the context menu allow to delete a single marker, or to
+remove a complete category including all of its markers.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-12.png" alt="map edit 12"></span></p>
 </div>
 <div class="paragraph">
-<p>Durch einfaches Anklicken bzw. -tippen erhält man ein Bearbeitungsmenü für den
-gewählten Eintrag. Hier können nun Text, Symbol, und Position des Markierungs-
-symbols verändert werden, es ist über das Mülltonnen-Symbol auch möglich einen
-Eintrag komplett zu entfernen.</p>
+<p>By simply clicking on a marker, or tapping on it in a touch screen, the
+edit menu for the marker opens in the side bar. Here you can not only
+change title, symbol and position of the marker, you can also use the
+"Trashcan" button to remove the marker completely.</p>
 </div>
 <div class="paragraph">
-<p>Weiterhin ist es möglich per Drag&amp;Drop einzele Markierungen, oder auch ganze
-Kategorien, innerhalb der Baumdarstellung an eine andere Position zu verschieben.</p>
+<p>It is also possible to move markers to a different category by using
+drag&amp;drop to move the entry to a different position within the category/marker
+tree.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_alle_markierungen_anzeigen">7. Alle Markierungen anzeigen</h2>
+<h2 id="_show_all_markers">7. Show all markers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Mit Hilfe des "Bilderrahmen"-Symbols in der Werkzeugleiste wird der aktuelle
-Kartenausschnitt so gewählt dass alle aktuell vorhandenen Markierungen sichtbar
-sind. Hierzu wird der Kartenausschnitt automatisch verschoben und der Vergrößerungsfaktor
-angepasst.</p>
+<p>With the "picture frame" icon in the icon bar the map position and zoom
+will be changed so that all current markers are visible. For this the
+map may be panned and the zoom factor may change.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_speichern_und_laden">8. Speichern und Laden</h2>
+<h2 id="_saving_and_loading">8. Saving and loading</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Diese beiden Funktionen sind bisher nur rudimentär vorhanden.</p>
+<p>These two functions are only in a rudiemtary state for now.</p>
 </div>
 <div class="paragraph">
-<p>Mit dem "Disketten"-Werkzeug wird der aktuelle Kartenzustand als Datei
-mit demselben Namen wie der vergebene Kartentitel, und mit Erweiterung
-".map", in das Download-Verzeichnis des Browsers heruntergeladen.
-Eine Auswahl des Dateinamens oder des Speicherorts ist nicht möglich.
-Die Speicherung erfolgt nur lokal und nicht auf dem Server.</p>
+<p>With the "Floppy disk" symbol the current map state will be
+downloaded as a file using the map title as base name and
+the file extension ".map" into the default
+download directory of your browser. Changing the file name
+or the directory is not possible. Saving only works locally
+on the current client device, there is no server side storage
+functionality yet.</p>
 </div>
 <div class="paragraph">
-<p>Mit Hilfe des "Ordner öffnen" Werkzeugs kann eine vorher gespeicherte
-".map" Datei geladen werden um die Bearbeitung fortzusetzen.</p>
+<p>Using the "open folder" icon you can load a previously saved
+".map" file to continue editing.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_karte_erstellen">9. Karte erstellen</h2>
+<h2 id="_create_the_printable_map">9. Create the printable map</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><span class="image"><img src="images/map-edit-pdf.png" alt="map edit pdf"></span></p>
 </div>
 <div class="paragraph">
-<p>Wenn alle gewünschten Markierungen eingetragen sind kann mit dem
-"Drucker"-Werkzeug die Erstellung einer Druckdatei angestoßen
-werden. Diese wird als PDF für das Papierformat DIN-A1 (query)
-erstellt und automatisch heruntergeladen.</p>
+<p>When having placed all desired POI markers you can use the "Printer"
+Icon to create the actual printable map file. This will be created
+as a PDF using the DIN-A1 poster size paper format (ca. 80x60cm or 36x24")
+and will be downloaded automatically.</p>
 </div>
 <div class="paragraph">
-<p>In Zukunft soll hier auch noch die Möglichkeit hinzukommen andere
-Dateiformate (SVG, PNG) zu wählen.</p>
+<p>In the future it may also be possible to choose a different file format,
+like SVG or PNG.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-31 09:17:19 CEST
+Last updated 2018-07-31 09:25:45 CEST
 </div>
 </div>
 </body>

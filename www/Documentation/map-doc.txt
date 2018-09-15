@@ -4,7 +4,7 @@ Hartmut Holzgraefe <hartmut@php.net>
 :toc:
 :icons:
 :numbered:
-:website: http://php-groupies.de/map-edit/
+:website: https://get-map.org/
 
 
 Festlegen des Standorts
@@ -13,7 +13,7 @@ Festlegen des Standorts
 image:images/map-edit-1.png[]
 
 Als erstes muss der Punkt festgelegt werden für den der Umgebungsplan erstellt werden soll.
-Zu beginn wird dazu ein blau unterlegtes Formular in der Seitenleiste und eine Fadenkreuz-förmige
+Zu Beginn wird dazu ein blau unterlegtes Formular in der Seitenleiste und eine Fadenkreuz-förmige
 Markierung auf der Karte eingeblendet.
 
 Die Markierung kann auf drei verschiedene Arten zur gewünschten Position bewegt werden:
@@ -59,7 +59,7 @@ wird.
 
 image:images/map-edit-4.png[]
 
-Die Farbeingbe sieht je nach Browser unterschiedlich aus, hier sehen wir das Eingabewerkzeug
+Die Farbeingabe sieht je nach Browser unterschiedlich aus, hier sehen wir das Eingabewerkzeug
 in Google Chrome ...
 
 image:images/map-edit-5.png[]
@@ -110,16 +110,16 @@ werden statt sie von Hand einzutragen, dies sind zur Zeit:
 * Kirchen (nur evangelische und katholische) und Moscheen
 
 Es werden alle entsprechenden bekannten Einträge für den gerade sichtbaren
-Kartenbereich ermittelt, dies kann je nach Größe des Kartenausschnitts ein
-paar Sekunden dauern.
-
-image:images/map-edit-10.png[]
+Kartenbereich mittels Overpass API ermittelt, dies kann je nach Größe des
+Kartenausschnitts ein paar Sekunden dauern.
 
 Das Endergebnis kann dann zB. so aussehen.
 
+image:images/map-edit-10.png[]
+
 
 Punkte bearbeiten
-----------------
+-----------------
 
 Inbsesondere nach der automatischen Ermittlung, aber natürlich auch sonst, kann
 es vorkommen dass man Markierungen wieder entfernen möchte. Hierzu gibt es zwei
@@ -157,18 +157,16 @@ angepasst.
 Speichern und Laden
 -------------------
 
-Diese beiden Funktionen sind noch nicht wirklich vorhanden. 
+Diese beiden Funktionen sind bisher nur rudimentär vorhanden.
 
 Mit dem "Disketten"-Werkzeug wird der aktuelle Kartenzustand als Datei
-"map-edit.txt" in das Download-Verzeichnis des Browsers heruntergeladen.
+mit demselben Namen wie der vergebene Kartentitel, und mit Erweiterung
+".map", in das Download-Verzeichnis des Browsers heruntergeladen.
 Eine Auswahl des Dateinamens oder des Speicherorts ist nicht möglich.
 Die Speicherung erfolgt nur lokal und nicht auf dem Server.
 
-Mit Hilfe des "Ordner öffnen" Werkzeugs wird es möglich sein einen
-einmal gespeicherten Zustand wieder zu laden. Zur Zeit ist hier aber
-einfach nur ein bestimmter Zustand hinterlegt (Orte in der Umgebung
-der "Almhallen" im Bielefelder Westen), die Auswahl einer eigenen
-Datei ist hier noch nicht möglich.
+Mit Hilfe des "Ordner öffnen" Werkzeugs kann eine vorher gespeicherte
+".map" Datei geladen werden um die Bearbeitung fortzusetzen.
 
 
 Karte erstellen

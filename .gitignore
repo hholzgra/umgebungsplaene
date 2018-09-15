@@ -1,4 +1,16 @@
 *~
-#*#
+\#*\#
 .*.swp
 bower_components
+
+www/Documentation/docbook-xsl.css
+www/Documentation/*.pdf
+www/Documentation/*.aux
+www/Documentation/*.glo
+www/Documentation/*.idx
+www/Documentation/*.log
+www/Documentation/*.pdf
+www/Documentation/*.tex
+www/Documentation/*.toc
+www/Documentation/*.xml
+
