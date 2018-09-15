@@ -61,7 +61,7 @@ function mapInit()
 
     // search button
     map.addControl( new L.Control.Search({
-	url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+	url: '//nominatim.openstreetmap.org/search?format=json&q={s}',
 	jsonpParam: 'json_callback',
 	propertyName: 'display_name',
 	propertyLoc: ['lat','lon'],
