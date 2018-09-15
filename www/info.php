@@ -1,5 +1,9 @@
 <?php
 
+require_once 'HTTP/Request2.php';
+
+$base_url = 'http://localhost/apis/';
+
 $tmpdir=tempnam(sys_get_temp_dir(),'');
 if (file_exists($tmpdir)) { unlink($tmpdir); }
 mkdir($tmpdir);
@@ -38,6 +42,8 @@ foreach ($data["nodes"] as $folder) {
 }
 
 file_put_contents("$tmpdir/poi_file.txt", $_REQUEST["data"]);
+// TODO: actually upload this once that feature is in place
+
 
 $d_lat = $max_lat - $min_lat;
 $d_lon = $max_lon - $min_lon;
@@ -48,35 +54,46 @@ $max_lat += $d_lat / 20;
 $min_lon -= $d_lon / 20;
 $max_lon += $d_lon / 20;
 
-$cmd = "";
-$cmd.= " /home/maposmatic/ocitysmap/render.py";
-$cmd.= " --config=/vagrant/ocitysmap.conf";
-$cmd.= sprintf(" --bounding-box=%.6f,%.6f %.6f,%.6f ", $min_lat, $min_lon, $max_lat, $max_lon);
-$cmd.= " --title='$title'";
-$cmd.= " --format=pdf";
-$cmd.= " --prefix=$tmpdir/$prefix";
-$cmd.= " --language=de_DE.utf8";
-$cmd.= " --layout=single_page_index_side";
-$cmd.= " --orientation=landscape";
-$cmd.= " --paper-format=A1";
-$cmd.= " --style=$style";
-$cmd.= " --poi-file=$tmpdir/poi_file.txt";
+$data = ['title'       => $title
+	,'style'       => 'CartoOSM'
+	,'layout'      => 'single_page_index_side'
+	,'paper_size'  => 'Din A1'
+	,'orientation' => 'landscape'
+	,'bbox_top'    => $max_lat
+	,'bbox_bottom' => $min_lat
+	,'bbox_left'   => $min_lon
+	,'bbox_right'  => $max_lon
+        ];
 
-file_put_contents("$tmpdir/cmdline.txt", $cmd);
 
-chdir("/home/maposmatic/ocitysmap/");
+$r = api_call($base_url."jobs/", $data, "$tmpdir/poi_file.txt");
 
-system("sudo -u maposmatic $cmd > $tmpdir/out.log 2> $tmpdir/err.log", $status);
+header("Location: ".$r->interactive);
 
-if ($status) {
-  header('content-type: text/plain');
-  echo "$cmd\n\n== stderr ==\n";
-  readfile("$tmpdir/err.log");
-  echo "\n\n== stdout ==\n";
-  readfile("$tmpdir/out.log");
-} else {
-  header('Content-type: application/pdf');
-  header('Content-Disposition: inline; filename="'.$prefix.'.pdf"');
 
-  readfile("$tmpdir/$prefix.pdf");
+
+
+
+
+
+
+
+function api_call($url, $data = null, $file = null)
+{
+  $request = new HTTP_Request2($url);
+
+  if ($data === null) {
+          $request->setMethod(HTTP_Request2::METHOD_GET);
+  } else {
+        $body = json_encode($data);
+
+        $request->setMethod(HTTP_Request2::METHOD_POST)
+	        ->addPostParameter('job', $body);
+	if($file !== null) {
+		 $request->addUpload('poi_file', $file, basename($file), 'application/json');
+	}
+  }
+
+  return json_decode($request->send()->getBody());
 }
+
