@@ -12,7 +12,8 @@ switch($data["base_layer"]) {
   case "HikeBikeMap":  $style = "HikeBikeMap";    break;
   case "OpenTopoMap":  $style = "OpenTopoMap";    break;
   case "German":       $style = "GermanCartoOSM"; break;
-  default:             $style = "Reduced";        break;
+  case "French":       $style = "FrenchOSM";      break;
+  default:             $style = "CartoOSM";       break;
 }
 
 $title = $data["title"];
