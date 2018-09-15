@@ -31,6 +31,7 @@ function mapInit()
 {
     var osmLayer      = L.tileLayer.provider('OpenStreetMap.Mapnik');
     var germanLayer   = L.tileLayer.provider('OpenStreetMap.DE');
+    var frenchLayer   = L.tileLayer.provider('OpenStreetMap.France');
     var hotLayer      = L.tileLayer.provider('OpenStreetMap.HOT');
     var hikeBikeLayer = L.tileLayer.provider('HikeBike.HikeBike');
     // var openTopoLayer = L.tileLayer.provider('OpenTopoMap');
@@ -45,6 +46,7 @@ function mapInit()
     var baseLayers = {
                        'OSM'   :       osmLayer, 
                        'German':       germanLayer,
+                       'French':       frenchLayer,
                        'Humanitarian': hotLayer,
                        'HikeBikeMap':  hikeBikeLayer,
                        // 'OpenTopoMap':  openTopoLayer,
