@@ -1037,7 +1037,7 @@ function overpassQuery(query)
     
     var url = "";
     
-    url += "http://overpass-api.de/api/interpreter?data=[out:json][timeout:25];%28";
+    url += "//overpass-api.de/api/interpreter?data=[out:json][timeout:25];%28";
     url += "node"+query+bb+";"
     url += "way"+query+bb+";"
     url += "relation"+query+bb+";"
