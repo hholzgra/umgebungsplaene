@@ -1049,11 +1049,14 @@ function overpassQuery(query)
     return url;
 }
 
-function importNodes(group, query, icon)
+function importNodes(group, query, name, icon)
 {
     $.getJSON(overpassQuery(query),
 	      function(data) {
 		  $.each(data.elements, function(key, val) {
+		      if ('name' in val.tags) {
+			  name = val.tags.name;
+		      }
 		      var lat, lon;
 		      if ('center' in val) {
 			  lat = val.center.lat;
@@ -1062,7 +1065,7 @@ function importNodes(group, query, icon)
 			  lat = val.lat;
 			  lon = val.lon;
 		      }
-		      poiAdd(tree, group, val.tags.name, icon, lat, lon);
+		      poiAdd(tree, group, name, icon, lat, lon);
 		  } );
 	      } );
 }
@@ -1074,16 +1077,16 @@ function overpassImport()
     clearForm();
 
     group = groupAdd(tree, "Einkauf", "#00ff00", "shopping-cart");
-    importNodes(group, '["shop"="supermarket"]', "shopping-cart");
+    importNodes(group, '["shop"="supermarket"]', "Supermarkt", "shopping-cart");
 
     group = groupAdd(tree, "Gesundheit", "#ff0000", "medkit");
-    importNodes(group, '["amenity"="hospital"]', "hospital-o");
-    importNodes(group, '["amenity"="pharmacy"]', "medkit");
+    importNodes(group, '["amenity"="hospital"]', "Krankenhaus", "hospital-o");
+    importNodes(group, '["amenity"="pharmacy"]', "Apotheke",    "medkit");
 
     group = groupAdd(tree, "Religion", "#7f7f7f", "plus-square");
-    importNodes(group, '["amenity"="place_of_worship"]["denomination"="protestant"]', "plus-square");
-    importNodes(group, '["amenity"="place_of_worship"]["denomination"="catholic"]', "plus-square");
-    importNodes(group, '["amenity"="place_of_worship"]["religion"="muslim"]', "moon-o");
+    importNodes(group, '["amenity"="place_of_worship"]["denomination"="protestant"]', "ev. Kirche",   "plus-square");
+    importNodes(group, '["amenity"="place_of_worship"]["denomination"="catholic"]',   "kath. Kirche", "plus-square");
+    importNodes(group, '["amenity"="place_of_worship"]["religion"="muslim"]',         "Moschee",      "moon-o");
 }
 
 /* -------------------------------------------------------------------------------------------- */
