@@ -1,8 +1,9 @@
 *~
 \#*\#
 .*.swp
-bower_components
-
+.#*
+config.php
+node_modules
 www/Documentation/docbook-xsl.css
 www/Documentation/*.pdf
 www/Documentation/*.aux
