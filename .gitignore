@@ -2,6 +2,7 @@
 \#*\#
 .*.swp
 bower_components
+config.php
 
 www/Documentation/docbook-xsl.css
 www/Documentation/*.pdf
