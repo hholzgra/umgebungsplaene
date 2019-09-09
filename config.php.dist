@@ -1,4 +1,10 @@
 <?php
 
+# MapOSMatic API base URL
 $base_url = 'https://maposmatic.osm-baustelle.de/apis/';
 
+# if this service is e.g. running in a VM with port forwarding
+# the result URL may need some rewriting to work
+
+# $url_rewrite = [ '/localhost/' => '/localhost:8000/' ];
+ 

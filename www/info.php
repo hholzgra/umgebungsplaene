@@ -3,6 +3,7 @@
 require_once 'HTTP/Request2.php';
 
 $base_url = 'https://maposmatic.osm-baustelle.de/apis/';
+$url_rewrite = [];
 
 include '../config.php';
 
@@ -72,7 +73,13 @@ $data = ['title'       => $title
 $r = api_call($base_url."jobs/", $data, "$tmpdir/poi_file.txt");
 
 
-header("Location: ".$r->interactive);
+$redirect_url = $r->interactive;
+
+foreach ($url_rewrite as $src => $dest) {
+	$redirect_url = str_replace($src, $dest, $redirect_url);
+}
+
+header("Location: " . $redirect_url);
 
 
 
