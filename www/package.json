@@ -26,7 +26,7 @@
     },
     "homepage": "https://umgebungsplaene.osm-baustelle.de/",
     "dependencies": {
-	"jquery": "^1.12.2",
+	"jquery": "^3.4.1",
 	"jquery-ui-dist": "^1.12.0",
 	"vbap-jpicker": "^1.1.6",
 	"ui-contextmenu": "^1.11.0",
