@@ -2,7 +2,7 @@
 
 require_once 'HTTP/Request2.php';
 
-$base_url = 'https://maposmatic.osm-baustelle.de/apis/';
+$base_url = 'https://print.get-map.org/apis/';
 $url_rewrite = [];
 
 include '../config.php';
@@ -69,17 +69,23 @@ $data = ['title'       => $title
 	,'bbox_right'  => $max_lon
         ];
 
-
 $r = api_call($base_url."jobs/", $data, "$tmpdir/poi_file.txt");
 
+if (property_exists($r, "interactive")) {
+  $redirect_url = $r->interactive;
 
-$redirect_url = $r->interactive;
-
-foreach ($url_rewrite as $src => $dest) {
+  foreach ($url_rewrite as $src => $dest) {
 	$redirect_url = str_replace($src, $dest, $redirect_url);
+  } 
+
+  header("Location: " . $redirect_url);
+} else {
+  header("Content-type: text/plain");
+  var_dump($r);
+  echo "--------\n";
+  var_dump($_REQUEST["data"]);
 }
 
-header("Location: " . $redirect_url);
 
 
 
