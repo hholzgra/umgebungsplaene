@@ -230,11 +230,24 @@ function adjustBounds(withZoom)
 
 /* -------------------------------------------------------------------------------------------- */
 
-// generate HTML for group entry in the tree
-function groupTitle(name, color, icon)
+// helper for onclick events on (+) in group title elements
+function addPoi(e, key)
 {
-    var html = "<span class='grouptitle' style='background-color: "+color+"'>";
-    
+    var node = tree.getNodeByKey(key);
+
+    e.stopPropagation();
+    poiForm(node);
+}
+
+// generate HTML for group entry in the tree
+function groupTitle(name, color, icon, key)
+{
+    var html = "";
+
+    html += "<a href='#' onclick='addPoi(event, \""+key+"\"); return false;'><span class='fa fa-plus-circle'></span></a> ";
+
+    html += "<span class='grouptitle' style='background-color: "+color+"'>";
+
     if (icon) {
 	html += "<span class='fa fa-"+icon+"'></span> "
     }
@@ -252,13 +265,14 @@ function groupAdd(tree, name, color, icon)
 {
     var newGroup = tree.getRootNode().addNode(
 	{ folder: true,
-	  title: groupTitle(name, color, icon),
 	  my_txt: name,
 	  my_icon: icon,
 	  my_color: color,
 	}
     );
     
+    newGroup.setTitle(groupTitle(name, color, icon, newGroup.key));
+
     tree.render();
 
     return newGroup;
@@ -289,9 +303,6 @@ function groupDelete(group)
 // handle group form submisssion
 function groupSubmit()
 {
-    // render group title for the tree view
-    var html = groupTitle($("#form_name").val(), $("#form_color").val(), $("#form_icon").val());
-
     // try to find existing group node bound to the form
     var node = tree.getNodeByKey($("#form_key").val());
 
@@ -300,6 +311,9 @@ function groupSubmit()
 	node.data.my_txt   = $("#form_name").val();
 	node.data.my_icon  = $("#form_icon").val();
 	node.data.my_color = $("#form_color").val();
+
+	// render group title for the tree view
+	var html = groupTitle($("#form_name").val(), $("#form_color").val(), $("#form_icon").val(), node.key);
 	node.setTitle(html);
 
         // update color on all related POI markers
