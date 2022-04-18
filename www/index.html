@@ -40,6 +40,8 @@
     <script src="node_modules/leaflet.active-layers/dist/leaflet.active-layers.min.js"></script>
     
     <script src="node_modules/file-saver/FileSaver.min.js"></script>
+
+    <script src="node_modules/gettext.js/dist/gettext.iife.js"></script>
     
     <link rel="stylesheet" href="main.css">
     <script src="main.js"></script>
@@ -54,8 +56,8 @@
       <div id="form" class="sideform"></div>
 
       <div id="sidetree" class="sidetree">
-        <div id="side_icons" style="float: right;"><a href="#" onclick="groupForm();" title="Add Group"><span class="fa fa-plus-square"></span></a></div>
-        <div id="side_title" onclick="titleForm();">Titel</div>
+        <div id="side_icons" style="float: right;"><a id="translateMe1" href="#" onclick="groupForm();" title="Add Group"><span class="fa fa-plus-square"></span></a></div>
+        <div onclick="titleForm();"><span class="fa fa-map"></span><span id="side_title"></span></div>
         <div id="tree"><ul></ul></div>
       </div>
     </div>

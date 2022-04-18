@@ -26,6 +26,10 @@ var drag_marker = false;
 // 
 var activeLayers = false;
 
+
+var i18n;
+function _(x) { return i18n.gettext(x); }
+
 // set up the actual map
 function mapInit()
 {
@@ -76,37 +80,37 @@ function mapInit()
     // info button - opens manual in new window
     L.easyButton('fa-info fa-lg',
 		 function(btn, map) { window.open("Documentation/map-doc-en.html"); },
-		 "about this tool"
+		 _("About this tool")
 		).addTo(map);
    
     // POI wizzard button 
     L.easyButton('fa-magic fa-lg',
 		 function(btn, map) { overpassImport(); },
-		 "auto-generate POIs"
+		 _("Auto-generate POIs")
 		).addTo(map);
 
     // re-zoom to marker bounds
     L.easyButton('fa-object-group fa-lg',
 		 function(btn, map) { adjustBounds(true); },
-		 "show all markers"
+		 _("Show all markers")
 		).addTo(map);
    
     // load/open button
     L.easyButton('fa-folder-open-o fa-lg',
 		 function(btn, map) { $('#loadfile').trigger('click');},
-		 "load a map"
+		 _("Load map")
 		).addTo(map);
 
     // save button 
     L.easyButton('fa-floppy-o fa-lg',
 		 function(btn, map) { saveMap(); },
-		 "save map"
+		 _("Save map")
 		).addTo(map);
 
     // print button
     L.easyButton('fa-print fa-lg',
 		 function(btn, map) { renderRequest(); },
-		 "generate map PDF"
+		 _("Generate map PDF")
 		).addTo(map);
 
 
@@ -153,7 +157,7 @@ function mapInit()
     // create center marker
     center_marker = L.marker([center_lat, center_lon],
 			  {icon: myIcon,
-			   title: "Center", // TODO: set dynamicly
+			   title: _("Location"),
 			   draggable: false,
 			   my_node: false,
 			  }).addTo(map_markers);    
@@ -244,7 +248,7 @@ function groupTitle(name, color, icon, key)
 {
     var html = "";
 
-    html += "<a href='#' onclick='addPoi(event, \""+key+"\"); return false;'><span class='fa fa-plus-circle'></span></a> ";
+    html += "<a href='#' onclick='addPoi(event, \""+key+"\"); return false;' title='"+_("New group")+"'><span class='fa fa-plus-circle'></span></a> ";
 
     html += "<span class='grouptitle' style='background-color: "+color+"'>";
 
@@ -364,14 +368,14 @@ function groupForm(node)
 
     if (!node) {
 	node = { key: "", data: {my_txt: "", my_color: "", my_icon: "",} ,};
-	formTitle = "New group";
+	formTitle = _("New group");
     } else {
-	trash = `<span class='fa-stack fa-lg' onclick='groupTrash();' title='delete'>
+	trash = `<span class='fa-stack fa-lg' onclick='groupTrash();' title='`+_('Delete')+`'>
 	      <span class='fa fa-square fa-stack-2x'></span>
 	      <span class='fa fa-trash  fa-stack-1x fa-inverse'></span>
             </span>`;
 
-	formTitle = "Edit group";
+	formTitle = _("Edit group");
     }
     
     html = `
@@ -380,21 +384,21 @@ function groupForm(node)
 
 	<div class='formhead'>${formTitle}</div>
 
-     	<div class='formline'><label>Name:</label></div>
+	<div class='formline'><label>`+_('Name')+`:</label></div>
 	<div class='formline'><input style='display: block; width: 100%;' type='text' id='form_name' value='${node.data.my_txt}'/></div>
 	
-     	<div class='formline'><label>Color:</label></div>
+	<div class='formline'><label>`+_('Color')+`:</label></div>
 	<div class='formline'><input type='color' id='form_color' value='${node.data.my_color}'/></div>
 	
-	<div class='formline'><label>Icon:<label/></div>
+	<div class='formline'><label>`+_('Icon')+`:<label/></div>
 	<div class='formline'>${iconOptions(node.data.my_icon)}</div>
 
 	<div class='formbuttons'>
-	  <span class='fa-stack fa-lg' onclick='$("#group_form").submit();' title='save'>
+	  <span class='fa-stack fa-lg' onclick='$("#group_form").submit();' title='`+_('Save')+`'>
 	    <span class='fa fa-square fa-stack-2x'></span>
 	    <span class='fa fa-check  fa-stack-1x fa-inverse'></span>
           </span>
-	  <span class='fa-stack fa-lg' onclick='groupCancel();' title='cancel'>
+	  <span class='fa-stack fa-lg' onclick='groupCancel();' title='`+_('Cancel')+`'>
 	    <span class='fa fa-square fa-stack-2x'></span>
 	    <span class='fa fa-close  fa-stack-1x fa-inverse'></span>
           </span>
@@ -607,7 +611,7 @@ function poiForm(node)
     } else {
 	map.setView([node.data.my_lat, node.data.my_lon]);
 	
-	trash = `<span class='fa-stack fa-lg' onclick='poiTrash();' title='delete'>
+	trash = `<span class='fa-stack fa-lg' onclick='poiTrash();' title='`+('Delete')+`'>
 	      <span class='fa fa-square fa-stack-2x'></span>
 	      <span class='fa fa-trash  fa-stack-1x fa-inverse'></span>
             </span>`;
@@ -616,29 +620,29 @@ function poiForm(node)
 	drag_marker = node.data.my_marker;
 	drag_marker.dragging.enable();
 	    
-	formTitle = "Edit node";
+	formTitle = _("Edit node");
     }
     
     html = `<form id='node_form' onsubmit='return poiSubmit();'><input type='hidden' id='form_key' value='${key}'/>
 	<div class='formhead'>${formTitle}</div>
 	
- 	<div class='formline'><label>Name:</label></div>
+ 	<div class='formline'><label>`+('Name')+`:</label></div>
 	<div class='formline'><input style='display: block; width: 100%;' type='text' id='form_name' value='${node.data.my_txt}'/></div>
 	
-	<div class='formline'><label>Icon:<label/></div>
+	<div class='formline'><label>`+('Icon')+`:<label/></div>
 	<div class='formline'>${iconOptions(node.data.my_icon)}</div>
 	
-	<div class='formline'><label>Lat / Lon:</label></div>
+	<div class='formline'><label>`+_('Lat / Lon')+`:</label></div>
 	<div style='width: 100%; text-align: center;'>
 	  <input class='readonly latlon' type='text' readonly='' type='text' id='form_lat' value='${node.data.my_lat}'/> 
 	  <input class='readonly latlon' type='text' readonly='' type='text' id='form_lon' value='${node.data.my_lon}'/>
 	</div>
 	<div class='formbuttons'>
-	  <span class='fa-stack fa-lg' onclick='$("#node_form").submit();' title='save'>
+	  <span class='fa-stack fa-lg' onclick='$("#node_form").submit();' title='`+_('Save')+`'>
 	    <span class='fa fa-square fa-stack-2x'></span>
 	    <span class='fa fa-check  fa-stack-1x fa-inverse'></span>
           </span>
-	  <span class='fa-stack fa-lg' onclick='poiCancel();' title='cancel'>
+	  <span class='fa-stack fa-lg' onclick='poiCancel();' title='`+_('Cancel')+`'>
 	    <span class='fa fa-square fa-stack-2x'></span>
 	    <span class='fa fa-close  fa-stack-1x fa-inverse'></span>
           </span>
@@ -686,23 +690,23 @@ function titleForm()
     clearForm();
     
     html=`<form id='center_form' onsubmit='return titleSubmit();'>
-	<div class='formhead'>Standort</div>
+	<div class='formhead'>`+_("Location")+`</div>
 	
- 	<div class='formline'><label>Name:</label></div>
+ 	<div class='formline'><label>`+_('Name')+`:</label></div>
 	<div class='formline'><input style='display: block; width: 100%;' type='text' id='form_name' value='${title}'/></div>
 	
-	<div class='formline'><label>Lat / Lon:</label></div>
+	<div class='formline'><label>`+_('Lat / Lon')+`:</label></div>
 	<div style='width: 100%; text-align: center;'>
 	  <input class='latlon readonly' readonly="" type='text' id='form_lat' value='${center_lat}'/> 
 	  <input class='latlon readonly' readonly="" type='text' id='form_lon' value='${center_lon}'/>
 	</div>
 
 	<div class='formbuttons'>
-	  <span class='fa-stack fa-lg' onclick='$("#center_form").submit();' title='save'>
+	  <span class='fa-stack fa-lg' onclick='$("#center_form").submit();' title='`+_('Save')+`'>
 	    <span class='fa fa-square fa-stack-2x'></span>
 	    <span class='fa fa-check  fa-stack-1x fa-inverse'></span>
           </span>
-	  <span class='fa-stack fa-lg' onclick='titleCancel();' title='cancel'>
+	  <span class='fa-stack fa-lg' onclick='titleCancel();' title='`+_('Cancel')+`'>
 	    <span class='fa fa-square fa-stack-2x'></span>
 	    <span class='fa fa-close  fa-stack-1x fa-inverse'></span>
           </span>
@@ -721,46 +725,47 @@ function titleForm()
 // selectable icons and their captions
 function iconOptions(default_icon)
 {
-    var icons = [ { name: "Einkaufen",
+    var icons = [ { name: _("Shopping"),
                     icons: [
-	["shopping-basket", "Einkaufen"],
-	["shopping-cart",   "Supermarkt"],
-	["cart-plus",         "Discounter"],
-] }, { name: "Nahverkehr", icons: [
-	["bus",             "Bus"],
-	["taxi",            "Taxi"],
-	["subway",          "Straßen- / U-Bahn"],
-	["train",           "Eisenbahn"],
-] }, { name: "Gesundheit", icons: [
-	["user-md",         "Arzt"],
-	["hospital-o",      "Krankenhaus"],
-	["medkit",          "Apotheke"],
-] }, { name: "Religion", icons: [
-	["plus-square",     "Kirche"],
-	["moon-o",          "Moschee"],
-] }, { name: "Essen & Trinken", icons: [
-        ["beer",            "Gaststätte"],
-        ["coffee",          "Cafe"],
-        ["cutlery",         "Restaurant"],
-        ["glass",           "Bar"],
-] }, { name: "Unterhaltung", icons: [
-        ["music",           "Club/Disco"],
-	["film",            "Kino"],
-] }, { name: "Verschiedenes", icons: [
-	["book",            "Bücherei"],
-	["envelope-o",      "Post"],
-	["graduation-cap",  "Schule"],
-	["bed",             "Unterkunft"],
-	["info",            "Information"],
-	["music",           "Musik"],
-	["phone",           "Telefon"],
-	["soccer-ball-o",   "Sport"],
-	["bicycle",         "Fahrrad"],
-	["car",             "Auto"],
-	["money",           "Bank"],
-        ["institution",     "Behörde"],
-        ["users",           "Treffpunkt"],
-]}];
+			["shopping-basket", _("Einkaufen")],
+			["shopping-cart",   _("Convenience Store")],
+			["cart-plus",       _("Discounter")],
+		    ] }, { name: _("Public Transport"), icons: [
+			["bus",             _("Bus")],
+			["taxi",            _("Taxi")],
+			["subway",          _("Tram / Subway")],
+			["train",           _("Railway")],
+		    ] }, { name: _("Health"), icons: [
+			["user-md",         _("Doctor")],
+			["hospital-o",      _("Hospital")],
+			["medkit",          _("Pharmacy")],
+		    ] }, { name: _("Religion"), icons: [
+			["plus-square",     _("Church")],
+			["moon-o",          _("Mosque")],
+		    ] }, { name: _("Hospitality"), icons: [
+			["beer",            _("Inn")],
+			["coffee",          _("Cafe")],
+			["cutlery",         _("Restaurant")],
+			["glass",           _("Bar")],
+		    ] }, { name: _("Entertainment"), icons: [
+			["music",           _("Club/Disco")],
+			["film",            _("Cinema")],
+			["masks-theater",   _("Theater")],
+		    ] }, { name: _("Misc."), icons: [
+			["book",            _("Library")],
+			["envelope-o",      _("Postal Service")],
+			["graduation-cap",  _("School")],
+			["bed",             _("Lodging")],
+			["info",            _("Information")],
+			["music",           _("Music")],
+			["phone",           _("Telephone")],
+			["soccer-ball-o",   _("Sport")],
+			["bicycle",         _("Bicycle")],
+			["car",             _("Car")],
+			["money",           _("Bank")],
+			["institution",     _("Authority")],
+			["users",           _("Meeting Place")],
+		    ]}];
 
     var html = "<select id='form_icon'>";
     for (var i in icons) {
@@ -984,8 +989,8 @@ function treeInit()
     $("#tree").contextmenu({
 	delegate: "span.fancytree-title",
 	menu: [
-            {title: "Delete",       cmd: "del", uiIcon: "ui-icon-trash"},
-	    {title: "Add&nbsp;POI", cmd: "add", uiIcon: "ui-icon-plusthick"},
+            {title: _("Delete"),       cmd: "del", uiIcon: "ui-icon-trash"},
+	    {title: _("Add&nbsp;POI"), cmd: "add", uiIcon: "ui-icon-plusthick"},
        ],
 	beforeOpen: function(event, ui) {
             var node = $.ui.fancytree.getNode(ui.target);
@@ -1001,7 +1006,7 @@ function treeInit()
 		}
 		break;
 	    case "del":
-		if (confirm("wirklich löschen?")) {
+		if (confirm(_("Really delete this?"))) {
 		    if (node.isFolder()) {
 			groupDelete(node);
 		    } else {
@@ -1034,7 +1039,7 @@ function renderRequest()
     }
 
     if (marker_count < 1) {
-        alert("Keine Marker auf der Karte, kein Druck möglich");
+        alert(_("No POIs added yet, can't generate map"));
     } else {
         $("#hidden_data").val(exportJSON());
         $("#hidden_form").submit();
@@ -1090,17 +1095,17 @@ function overpassImport()
 
     clearForm();
 
-    group = groupAdd(tree, "Einkauf", "#00ff00", "shopping-cart");
-    importNodes(group, '["shop"="supermarket"]', "Supermarkt", "shopping-cart");
+    group = groupAdd(tree, _("Shopping"), "#00ff00", "shopping-cart");
+    importNodes(group, '["shop"="supermarket"]', _("Convenience Store"), "shopping-cart");
 
-    group = groupAdd(tree, "Gesundheit", "#ff0000", "medkit");
-    importNodes(group, '["amenity"="hospital"]', "Krankenhaus", "hospital-o");
-    importNodes(group, '["amenity"="pharmacy"]', "Apotheke",    "medkit");
+    group = groupAdd(tree, _("Health"), "#ff0000", "medkit");
+    importNodes(group, '["amenity"="hospital"]', _("Hospital"), "hospital-o");
+    importNodes(group, '["amenity"="pharmacy"]', _("Parmacy"),    "medkit");
 
-    group = groupAdd(tree, "Religion", "#7f7f7f", "plus-square");
-    importNodes(group, '["amenity"="place_of_worship"]["denomination"="protestant"]', "ev. Kirche",   "plus-square");
-    importNodes(group, '["amenity"="place_of_worship"]["denomination"="catholic"]',   "kath. Kirche", "plus-square");
-    importNodes(group, '["amenity"="place_of_worship"]["religion"="muslim"]',         "Moschee",      "moon-o");
+    group = groupAdd(tree, _("Religion"), "#7f7f7f", "plus-square");
+    importNodes(group, '["amenity"="place_of_worship"]["denomination"="protestant"]', _("Protestant Church"),   "plus-square");
+    importNodes(group, '["amenity"="place_of_worship"]["denomination"="catholic"]',   _("Catholic Church"), "plus-square");
+    importNodes(group, '["amenity"="place_of_worship"]["religion"="muslim"]',         _("Mosque"),      "moon-o");
 }
 
 /* -------------------------------------------------------------------------------------------- */
@@ -1158,7 +1163,7 @@ function FileLoad(evt)
 	}
 	r.readAsText(f);
     } else { 
-	alert("Failed to load file");
+	alert(_("Failed to load file"));
     }}
 
 /* -------------------------------------------------------------------------------------------- */
@@ -1190,17 +1195,101 @@ function getMarkerIcon(color, icon, size)
 }
 
 /* -------------------------------------------------------------------------------------------- */
+function getLang()
+{
+    if (navigator.languages != undefined)
+	return navigator.languages[0].substring(0,2);
+    return navigator.language.substring(0,2);
+}
 
 $(function() {
     $("#map").height(window.innerHeight);
     $(window).resize(function() {
 	$("#map").height(window.innerHeight);
     });
-		     
+
+    var po = {
+	"": {
+	    "language": "de",
+	    "plural-forms": "nplurals=2; plural=n>1;"
+	},
+	"About this tool": "Über diese Anwendung",
+	"Add&nbsp;POI": "Ort hinzufügen",
+	"Add Group": "Gruppe hinzufügen",
+	"Auto-generate POIs": "Orte automatisch hinzufügen",
+	"Cancel": "Abbrechen",
+	"Color": "Farbe",
+	"Delete": "Löschen",
+	"Edit group": "Gruppe bearbeiten",
+	"Edit node": "Ort bearbeiten",
+	"Failed to load file": "Datei konnte nicht geladen werden",
+	"Generate map PDF": "PDF-Karte erzeugen",
+	"Icon": "Symbol",
+	"Lat / Lon": "geo. Breite / Länge",
+	"Load map": "Karte laden",
+	"Location": "Standort",
+	"Name": "Name",
+	"New group": "Neue Gruppe",
+	"No POIs added yet, can't generate map": "Keine Orte auf der Karte, kein Druck möglich",
+	"Really delete this?": "Wirklich löschen?",
+	"Save": "Speichern",
+	"Save map": "Karte speichern",
+	"Show all markers": "Alle Markierungen anzeigen",
+	"Title": "Titel",
+
+	"Shopping": "Einkaufen",
+	"Convenience Store": "Supermarkt",
+	"Discounter": "Discounter",
+	"Public Transport": "Nahverkehr",
+	"Bus": "Bus",
+	"Taxi": "Taxi",
+	"Tram / Subway": "Straßen- / U-Bahn",
+	"Railway": "Eisenbahn",
+	"Health": "Gesundheit",
+	"Doctor": "Arzt",
+	"Hospital": "Krankenhaus",
+	"Pharmacy": "Apotheke",
+	"Religion": "Religion",
+	"Church": "Kirche",
+        "Protestant Church": "ev. Kirche",
+        "Catholic Church": "kath. Kirche",
+	"Mosque": "Moschee",
+	"Hospitailty": "Gastronomie",
+	"Inn": "Gaststätte",
+	"Cafe": "Cafe",
+	"Restaurant": "Restaurant",
+	"Bar": "Bar",
+	"Entertainment": "Unterhaltung",
+	"Club/Disco": "Club/Disco",
+	"Cinema": "Kino",
+	"Theater": "Theater",
+	"Misc.": "Verschiedenes",
+	"Library": "Bücherei",
+	"Postal Service": "Post",
+	"School": "Schule",
+	"Lodging": "Unterkunft",
+	"Information": "Information",
+	"Music": "Musik",
+	"Telephone": "Telefon",
+	"Sport": "Sport",
+	"Bicycle": "Fahrrad",
+	"Car": "Auto",
+	"Money": "Geld",
+	"Authority": "Behörde",
+	"Meeting Place": "Treffpunkt",
+    };
+
+    i18n = window.i18n();
+    i18n.loadJSON(po, 'messages');
+    i18n.setLocale(getLang());
+
     mapInit();
     treeInit();
 
+    $("#translateMe1").prop( "title", _("Add Group"));
+
     titleForm();
 });
+
 
 
