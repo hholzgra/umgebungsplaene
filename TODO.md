@@ -4,11 +4,7 @@
 
 * maybe use different tree component?
 
-* pass data to info.php as json, get rid of ad-hoc text format
-
 * let wizzard only find x closest per type
-
-* more intuitive POI adding
 
 * show spinner while waiting for OverPass query results
 
@@ -17,3 +13,7 @@
 * landscape/portrait support
 
 * bottom multi-column index support
+
+* integrate into Weblate transaltion infrastructure
+
+* allow users to change language
