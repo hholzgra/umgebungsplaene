@@ -3,19 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-19 15:11+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2022-04-19 17:04+0000\n"
+"Last-Translator: Weblate Admin <admin@example.com>\n"
+"Language-Team: Ukrainian <https://translate.get-map.org/projects/maposmatic/"
+"neighborhood/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.6.2\n"
 
 #: www/main.js:83
 msgid "About this tool"
@@ -91,180 +94,180 @@ msgstr "Покупки"
 
 #: www/main.js:731 www/main.js:1099
 msgid "Convenience Store"
-msgstr ""
+msgstr "Крамниця"
 
 #: www/main.js:732
 msgid "Discounter"
-msgstr ""
+msgstr "Дисконтер"
 
 #: www/main.js:733
 msgid "Public Transport"
-msgstr ""
+msgstr "Громадський транспорт"
 
 #: www/main.js:734
 msgid "Bus"
-msgstr ""
+msgstr "Автобус"
 
 #: www/main.js:735
 msgid "Taxi"
-msgstr ""
+msgstr "Таксі"
 
 #: www/main.js:736
 msgid "Tram / Subway"
-msgstr ""
+msgstr "Трамвай / Метро"
 
 #: www/main.js:737
 msgid "Railway"
-msgstr ""
+msgstr "Залізниця"
 
 #: www/main.js:738 www/main.js:1101
 msgid "Health"
-msgstr ""
+msgstr "Здоров'я"
 
 #: www/main.js:739
 msgid "Doctor"
-msgstr ""
+msgstr "Лікар"
 
 #: www/main.js:740 www/main.js:1102
 msgid "Hospital"
-msgstr ""
+msgstr "Лікарня"
 
 #: www/main.js:741
 msgid "Pharmacy"
-msgstr ""
+msgstr "Аптека"
 
 #: www/main.js:742 www/main.js:1105
 msgid "Religion"
-msgstr ""
+msgstr "Релігія"
 
 #: www/main.js:743
 msgid "Church"
-msgstr ""
+msgstr "Церква"
 
 #: www/main.js:744 www/main.js:1108
 msgid "Mosque"
-msgstr ""
+msgstr "Мечеть"
 
 #: www/main.js:745
 msgid "Hospitality"
-msgstr ""
+msgstr "Гостинність"
 
 #: www/main.js:746
 msgid "Inn"
-msgstr ""
+msgstr "Готель"
 
 #: www/main.js:747
 msgid "Cafe"
-msgstr ""
+msgstr "Кафе"
 
 #: www/main.js:748
 msgid "Restaurant"
-msgstr ""
+msgstr "Ресторан"
 
 #: www/main.js:749
 msgid "Bar"
-msgstr ""
+msgstr "Бар"
 
 #: www/main.js:750
 msgid "Entertainment"
-msgstr ""
+msgstr "Розваги"
 
 #: www/main.js:751
 msgid "Club/Disco"
-msgstr ""
+msgstr "Клуб/Дискотека"
 
 #: www/main.js:752
 msgid "Cinema"
-msgstr ""
+msgstr "Кіно"
 
 #: www/main.js:753
 msgid "Theater"
-msgstr ""
+msgstr "Театр"
 
 #: www/main.js:754
 msgid "Misc."
-msgstr ""
+msgstr "Різне"
 
 #: www/main.js:755
 msgid "Library"
-msgstr ""
+msgstr "Бібліотека"
 
 #: www/main.js:756
 msgid "Postal Service"
-msgstr ""
+msgstr "Поштова служба"
 
 #: www/main.js:757
 msgid "School"
-msgstr ""
+msgstr "Школа"
 
 #: www/main.js:758
 msgid "Lodging"
-msgstr ""
+msgstr "Житло"
 
 #: www/main.js:759
 msgid "Information"
-msgstr ""
+msgstr "Інформація"
 
 #: www/main.js:760
 msgid "Music"
-msgstr ""
+msgstr "Музика"
 
 #: www/main.js:761
 msgid "Telephone"
-msgstr ""
+msgstr "Телефон"
 
 #: www/main.js:762
 msgid "Sport"
-msgstr ""
+msgstr "Спорт"
 
 #: www/main.js:763
 msgid "Bicycle"
-msgstr ""
+msgstr "Велосипед"
 
 #: www/main.js:764
 msgid "Car"
-msgstr ""
+msgstr "Автомобіль"
 
 #: www/main.js:765
 msgid "Bank"
-msgstr ""
+msgstr "Гроші"
 
 #: www/main.js:766
 msgid "Authority"
-msgstr ""
+msgstr "Орган влади"
 
 #: www/main.js:767
 msgid "Meeting Place"
-msgstr ""
+msgstr "Місце зустрічі"
 
 #: www/main.js:993
 msgid "Add&nbsp;POI"
-msgstr ""
+msgstr "Додати&nbsp;об'єкт"
 
 #: www/main.js:1009
 msgid "Really delete this?"
-msgstr ""
+msgstr "Дійсно видалити це?"
 
 #: www/main.js:1042
 msgid "No POIs added yet, can't generate map"
-msgstr ""
+msgstr "Поки що немає об'єктів, не вдається створити карту"
 
 #: www/main.js:1103
 msgid "Parmacy"
-msgstr ""
+msgstr "Аптека"
 
 #: www/main.js:1106
 msgid "Protestant Church"
-msgstr ""
+msgstr "Протестантська церква"
 
 #: www/main.js:1107
 msgid "Catholic Church"
-msgstr ""
+msgstr "Католицька церква"
 
 #: www/main.js:1166
 msgid "Failed to load file"
-msgstr ""
+msgstr "Не вдалося завантажити файл"
 
 #: www/main.js:1220
 msgid "Add Group"
-msgstr ""
+msgstr "Додати групу"
