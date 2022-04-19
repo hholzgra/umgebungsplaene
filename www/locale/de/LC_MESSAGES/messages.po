@@ -1,0 +1,269 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-19 15:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: www/main.js:83
+msgid "About this tool"
+msgstr ""
+
+#: www/main.js:89
+msgid "Auto-generate POIs"
+msgstr ""
+
+#: www/main.js:95
+msgid "Show all markers"
+msgstr ""
+
+#: www/main.js:101
+msgid "Load map"
+msgstr ""
+
+#: www/main.js:107
+msgid "Save map"
+msgstr ""
+
+#: www/main.js:113
+msgid "Generate map PDF"
+msgstr ""
+
+#: www/main.js:160 www/main.js:693
+msgid "Location"
+msgstr ""
+
+#: www/main.js:251 www/main.js:371
+msgid "New group"
+msgstr ""
+
+#: www/main.js:373 www/main.js:992
+msgid "Delete"
+msgstr ""
+
+#: www/main.js:378
+msgid "Edit group"
+msgstr ""
+
+#: www/main.js:387 www/main.js:695
+msgid "Name"
+msgstr ""
+
+#: www/main.js:390
+msgid "Color"
+msgstr ""
+
+#: www/main.js:393
+msgid "Icon"
+msgstr ""
+
+#: www/main.js:397 www/main.js:641 www/main.js:705
+msgid "Save"
+msgstr ""
+
+#: www/main.js:401 www/main.js:645 www/main.js:709
+msgid "Cancel"
+msgstr ""
+
+#: www/main.js:623
+msgid "Edit node"
+msgstr ""
+
+#: www/main.js:635 www/main.js:698
+msgid "Lat / Lon"
+msgstr ""
+
+#: www/main.js:728 www/main.js:730 www/main.js:1098
+msgid "Shopping"
+msgstr ""
+
+#: www/main.js:731 www/main.js:1099
+msgid "Convenience Store"
+msgstr ""
+
+#: www/main.js:732
+msgid "Discounter"
+msgstr ""
+
+#: www/main.js:733
+msgid "Public Transport"
+msgstr ""
+
+#: www/main.js:734
+msgid "Bus"
+msgstr ""
+
+#: www/main.js:735
+msgid "Taxi"
+msgstr ""
+
+#: www/main.js:736
+msgid "Tram / Subway"
+msgstr ""
+
+#: www/main.js:737
+msgid "Railway"
+msgstr ""
+
+#: www/main.js:738 www/main.js:1101
+msgid "Health"
+msgstr ""
+
+#: www/main.js:739
+msgid "Doctor"
+msgstr ""
+
+#: www/main.js:740 www/main.js:1102
+msgid "Hospital"
+msgstr ""
+
+#: www/main.js:741
+msgid "Pharmacy"
+msgstr ""
+
+#: www/main.js:742 www/main.js:1105
+msgid "Religion"
+msgstr ""
+
+#: www/main.js:743
+msgid "Church"
+msgstr ""
+
+#: www/main.js:744 www/main.js:1108
+msgid "Mosque"
+msgstr ""
+
+#: www/main.js:745
+msgid "Hospitality"
+msgstr ""
+
+#: www/main.js:746
+msgid "Inn"
+msgstr ""
+
+#: www/main.js:747
+msgid "Cafe"
+msgstr ""
+
+#: www/main.js:748
+msgid "Restaurant"
+msgstr ""
+
+#: www/main.js:749
+msgid "Bar"
+msgstr ""
+
+#: www/main.js:750
+msgid "Entertainment"
+msgstr ""
+
+#: www/main.js:751
+msgid "Club/Disco"
+msgstr ""
+
+#: www/main.js:752
+msgid "Cinema"
+msgstr ""
+
+#: www/main.js:753
+msgid "Theater"
+msgstr ""
+
+#: www/main.js:754
+msgid "Misc."
+msgstr ""
+
+#: www/main.js:755
+msgid "Library"
+msgstr ""
+
+#: www/main.js:756
+msgid "Postal Service"
+msgstr ""
+
+#: www/main.js:757
+msgid "School"
+msgstr ""
+
+#: www/main.js:758
+msgid "Lodging"
+msgstr ""
+
+#: www/main.js:759
+msgid "Information"
+msgstr ""
+
+#: www/main.js:760
+msgid "Music"
+msgstr ""
+
+#: www/main.js:761
+msgid "Telephone"
+msgstr ""
+
+#: www/main.js:762
+msgid "Sport"
+msgstr ""
+
+#: www/main.js:763
+msgid "Bicycle"
+msgstr ""
+
+#: www/main.js:764
+msgid "Car"
+msgstr ""
+
+#: www/main.js:765
+msgid "Bank"
+msgstr ""
+
+#: www/main.js:766
+msgid "Authority"
+msgstr ""
+
+#: www/main.js:767
+msgid "Meeting Place"
+msgstr ""
+
+#: www/main.js:993
+msgid "Add&nbsp;POI"
+msgstr ""
+
+#: www/main.js:1009
+msgid "Really delete this?"
+msgstr ""
+
+#: www/main.js:1042
+msgid "No POIs added yet, can't generate map"
+msgstr ""
+
+#: www/main.js:1103
+msgid "Parmacy"
+msgstr ""
+
+#: www/main.js:1106
+msgid "Protestant Church"
+msgstr ""
+
+#: www/main.js:1107
+msgid "Catholic Church"
+msgstr ""
+
+#: www/main.js:1166
+msgid "Failed to load file"
+msgstr ""
+
+#: www/main.js:1220
+msgid "Add Group"
+msgstr ""
