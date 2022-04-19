@@ -727,7 +727,7 @@ function iconOptions(default_icon)
 {
     var icons = [ { name: _("Shopping"),
                     icons: [
-			["shopping-basket", _("Einkaufen")],
+			["shopping-basket", _("Shopping")],
 			["shopping-cart",   _("Convenience Store")],
 			["cart-plus",       _("Discounter")],
 		    ] }, { name: _("Public Transport"), icons: [
@@ -1100,7 +1100,7 @@ function overpassImport()
 
     group = groupAdd(tree, _("Health"), "#ff0000", "medkit");
     importNodes(group, '["amenity"="hospital"]', _("Hospital"), "hospital-o");
-    importNodes(group, '["amenity"="pharmacy"]', _("Parmacy"),    "medkit");
+    importNodes(group, '["amenity"="pharmacy"]', _("Pharmacy"),    "medkit");
 
     group = groupAdd(tree, _("Religion"), "#7f7f7f", "plus-square");
     importNodes(group, '["amenity"="place_of_worship"]["denomination"="protestant"]', _("Protestant Church"),   "plus-square");
@@ -1208,79 +1208,10 @@ $(function() {
 	$("#map").height(window.innerHeight);
     });
 
-    var po = {
-	"": {
-	    "language": "de",
-	    "plural-forms": "nplurals=2; plural=n>1;"
-	},
-	"About this tool": "Über diese Anwendung",
-	"Add&nbsp;POI": "Ort hinzufügen",
-	"Add Group": "Gruppe hinzufügen",
-	"Auto-generate POIs": "Orte automatisch hinzufügen",
-	"Cancel": "Abbrechen",
-	"Color": "Farbe",
-	"Delete": "Löschen",
-	"Edit group": "Gruppe bearbeiten",
-	"Edit node": "Ort bearbeiten",
-	"Failed to load file": "Datei konnte nicht geladen werden",
-	"Generate map PDF": "PDF-Karte erzeugen",
-	"Icon": "Symbol",
-	"Lat / Lon": "geo. Breite / Länge",
-	"Load map": "Karte laden",
-	"Location": "Standort",
-	"Name": "Name",
-	"New group": "Neue Gruppe",
-	"No POIs added yet, can't generate map": "Keine Orte auf der Karte, kein Druck möglich",
-	"Really delete this?": "Wirklich löschen?",
-	"Save": "Speichern",
-	"Save map": "Karte speichern",
-	"Show all markers": "Alle Markierungen anzeigen",
-	"Title": "Titel",
-
-	"Shopping": "Einkaufen",
-	"Convenience Store": "Supermarkt",
-	"Discounter": "Discounter",
-	"Public Transport": "Nahverkehr",
-	"Bus": "Bus",
-	"Taxi": "Taxi",
-	"Tram / Subway": "Straßen- / U-Bahn",
-	"Railway": "Eisenbahn",
-	"Health": "Gesundheit",
-	"Doctor": "Arzt",
-	"Hospital": "Krankenhaus",
-	"Pharmacy": "Apotheke",
-	"Religion": "Religion",
-	"Church": "Kirche",
-        "Protestant Church": "ev. Kirche",
-        "Catholic Church": "kath. Kirche",
-	"Mosque": "Moschee",
-	"Hospitailty": "Gastronomie",
-	"Inn": "Gaststätte",
-	"Cafe": "Cafe",
-	"Restaurant": "Restaurant",
-	"Bar": "Bar",
-	"Entertainment": "Unterhaltung",
-	"Club/Disco": "Club/Disco",
-	"Cinema": "Kino",
-	"Theater": "Theater",
-	"Misc.": "Verschiedenes",
-	"Library": "Bücherei",
-	"Postal Service": "Post",
-	"School": "Schule",
-	"Lodging": "Unterkunft",
-	"Information": "Information",
-	"Music": "Musik",
-	"Telephone": "Telefon",
-	"Sport": "Sport",
-	"Bicycle": "Fahrrad",
-	"Car": "Auto",
-	"Money": "Geld",
-	"Authority": "Behörde",
-	"Meeting Place": "Treffpunkt",
-    };
 
     i18n = window.i18n();
-    i18n.loadJSON(po, 'messages');
+    i18n.loadJSON(l10n_de, 'messages');
+    i18n.loadJSON(l10n_uk, 'messages');
     i18n.setLocale(getLang());
 
     mapInit();

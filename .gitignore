@@ -14,4 +14,5 @@ www/Documentation/*.pdf
 www/Documentation/*.tex
 www/Documentation/*.toc
 www/Documentation/*.xml
-
+www/l10n-*.js
+*.mo
