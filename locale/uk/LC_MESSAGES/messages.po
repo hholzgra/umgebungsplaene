@@ -43,51 +43,51 @@ msgstr "Створити карту в форматі PDF"
 
 #: www/main.js:160 www/main.js:693
 msgid "Location"
-msgstr ""
+msgstr "Розташування"
 
 #: www/main.js:251 www/main.js:371
 msgid "New group"
-msgstr ""
+msgstr "Нова група"
 
 #: www/main.js:373 www/main.js:992
 msgid "Delete"
-msgstr ""
+msgstr "Видалити"
 
 #: www/main.js:378
 msgid "Edit group"
-msgstr ""
+msgstr "Редагувати групу"
 
 #: www/main.js:387 www/main.js:695
 msgid "Name"
-msgstr ""
+msgstr "Редагувати вузол"
 
 #: www/main.js:390
 msgid "Color"
-msgstr ""
+msgstr "Колір"
 
 #: www/main.js:393
 msgid "Icon"
-msgstr ""
+msgstr "Значок"
 
 #: www/main.js:397 www/main.js:641 www/main.js:705
 msgid "Save"
-msgstr ""
+msgstr "Зберегти"
 
 #: www/main.js:401 www/main.js:645 www/main.js:709
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: www/main.js:623
 msgid "Edit node"
-msgstr ""
+msgstr "Редагувати вузол"
 
 #: www/main.js:635 www/main.js:698
 msgid "Lat / Lon"
-msgstr ""
+msgstr "Широта / Довгота"
 
 #: www/main.js:728 www/main.js:730 www/main.js:1098
 msgid "Shopping"
-msgstr ""
+msgstr "Покупки"
 
 #: www/main.js:731 www/main.js:1099
 msgid "Convenience Store"
