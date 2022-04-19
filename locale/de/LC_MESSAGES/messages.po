@@ -1,0 +1,271 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-19 15:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+#: www/main.js:83
+msgid "About this tool" 
+msgstr "Über diese Anwendung"
+
+#: www/main.js:89
+msgid "Auto-generate POIs"
+msgstr "Orte automatisch hinzufügen"
+
+#: www/main.js:95
+msgid "Show all markers"
+msgstr "Alle Markierungen anzeigen"
+
+#: www/main.js:101
+msgid "Load map"
+msgstr "Karte laden"
+
+#: www/main.js:107
+msgid "Save map"
+msgstr "Karte speichern"
+
+#: www/main.js:113
+msgid "Generate map PDF"
+msgstr "PDF-Karte erzeugen"
+
+#: www/main.js:160 www/main.js:693
+msgid "Location"
+msgstr "Standort"
+
+#: www/main.js:251 www/main.js:371
+msgid "New group"
+msgstr "Neue Gruppe"
+
+#: www/main.js:373 www/main.js:992
+msgid "Delete"
+msgstr "Löschen"
+
+#: www/main.js:378
+msgid "Edit group"
+msgstr "Gruppe bearbeiten"
+
+#: www/main.js:387 www/main.js:695
+msgid "Name"
+msgstr "Name"
+
+#: www/main.js:390
+msgid "Color"
+msgstr "Farbe"
+
+#: www/main.js:393
+msgid "Icon"
+msgstr "Symbol"
+
+#: www/main.js:397 www/main.js:641 www/main.js:705
+msgid "Save"
+msgstr "Speichern"
+
+#: www/main.js:401 www/main.js:645 www/main.js:709
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: www/main.js:623
+msgid "Edit node"
+msgstr "Ort bearbeiten"
+
+#: www/main.js:635 www/main.js:698
+msgid "Lat / Lon"
+msgstr "geo. Breite / Länge"
+
+#: www/main.js:728 www/main.js:730 www/main.js:1098
+msgid "Shopping"
+msgstr "Einkaufen"
+
+#: www/main.js:731 www/main.js:1099
+msgid "Convenience Store"
+msgstr "Supermarkt"
+
+#: www/main.js:732
+msgid "Discounter"
+msgstr "Discounter"
+
+#: www/main.js:733
+msgid "Public Transport"
+msgstr "Nahverkehr"
+
+#: www/main.js:734
+msgid "Bus"
+msgstr "Bus"
+
+#: www/main.js:735
+msgid "Taxi"
+msgstr "Taxi"
+
+#: www/main.js:736
+msgid "Tram / Subway"
+msgstr "Straßen- / U-Bahn"
+
+#: www/main.js:737
+msgid "Railway"
+msgstr "Eisenbahn"
+
+#: www/main.js:738 www/main.js:1101
+msgid "Health"
+msgstr "Gesundeit"
+
+#: www/main.js:739
+msgid "Doctor"
+msgstr "Arzt"
+
+#: www/main.js:740 www/main.js:1102
+msgid "Hospital"
+msgstr "Krankenhaus"
+
+#: www/main.js:741
+msgid "Pharmacy"
+msgstr "Apotheke"
+
+#: www/main.js:742 www/main.js:1105
+msgid "Religion"
+msgstr "Religion"
+
+#: www/main.js:743
+msgid "Church"
+msgstr "Kirche"
+
+#: www/main.js:744 www/main.js:1108
+msgid "Mosque"
+msgstr "Moschee"
+
+#: www/main.js:745
+msgid "Hospitality"
+msgstr "Gastronomie"
+
+#: www/main.js:746
+msgid "Inn"
+msgstr "Gaststätte"
+
+#: www/main.js:747
+msgid "Cafe"
+msgstr "Cafe"
+
+#: www/main.js:748
+msgid "Restaurant"
+msgstr "Restaurant"
+
+#: www/main.js:749
+msgid "Bar"
+msgstr "Bar"
+
+#: www/main.js:750
+msgid "Entertainment"
+msgstr "Unterhaltung"
+
+#: www/main.js:751
+msgid "Club/Disco"
+msgstr "Club / Disco"
+
+#: www/main.js:752
+msgid "Cinema"
+msgstr "Kino"
+
+#: www/main.js:753
+msgid "Theater"
+msgstr "Theater"
+
+#: www/main.js:754
+msgid "Misc."
+msgstr "Verschiedenes"
+
+#: www/main.js:755
+msgid "Library"
+msgstr "Bücherei"
+
+#: www/main.js:756
+msgid "Postal Service"
+msgstr "Post"
+
+#: www/main.js:757
+msgid "School"
+msgstr "Schule"
+
+#: www/main.js:758
+msgid "Lodging"
+msgstr "Unterkunft"
+
+#: www/main.js:759
+msgid "Information"
+msgstr "Information"
+
+#: www/main.js:760
+msgid "Music"
+msgstr "Musik"
+
+#: www/main.js:761
+msgid "Telephone"
+msgstr "Telefon"
+
+#: www/main.js:762
+msgid "Sport"
+msgstr "Sport"
+
+#: www/main.js:763
+msgid "Bicycle"
+msgstr "Fahrrad"
+
+#: www/main.js:764
+msgid "Car"
+msgstr "Auto"
+
+#: www/main.js:765
+msgid "Bank"
+msgstr "Bank"
+
+#: www/main.js:766
+msgid "Authority"
+msgstr "Behörde"
+
+#: www/main.js:767
+msgid "Meeting Place"
+msgstr "Treffpunkt"
+
+#: www/main.js:993
+msgid "Add&nbsp;POI"
+msgstr "POI hinzufügen"
+
+#: www/main.js:1009
+msgid "Really delete this?"
+msgstr "Wrklich löschen?"
+
+#: www/main.js:1042
+msgid "No POIs added yet, can't generate map"
+msgstr "Keine Orte auf der Karte, kein Druck möglich"
+
+#: www/main.js:1103
+msgid "Parmacy"
+msgstr "Apotheke"
+
+#: www/main.js:1106
+msgid "Protestant Church"
+msgstr "ev. Kirche"
+
+#: www/main.js:1107
+msgid "Catholic Church"
+msgstr "kath. Kurche"
+
+#: www/main.js:1166
+msgid "Failed to load file"
+msgstr "Datei konnte nicht geladen werden"
+
+#: www/main.js:1220
+msgid "Add Group"
+msgstr "Gruppe hinzufügen"
