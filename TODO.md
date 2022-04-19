@@ -4,7 +4,7 @@
 
 * maybe use different tree component?
 
-* let wizzard only find x closest per type
+* let wizzard only find x closest per type (Issue #8)
 
 * show spinner while waiting for OverPass query results
 
@@ -14,6 +14,6 @@
 
 * bottom multi-column index support
 
-* integrate into Weblate transaltion infrastructure
+* integrate into Weblate transaltion infrastructure (Issue #7)
 
-* allow users to change language
+* allow users to change language (Issue #9)
