@@ -63,6 +63,8 @@ $data = ['title'       => $title
 	,'layout'      => 'single_page_index_side'
 	,'paper_size'  => 'Din A1'
 	,'orientation' => 'landscape'
+	,'indexer'     => 'Poi'
+	,'extra_logo'  => 'bundled:extra-logo.svg'
 	,'bbox_top'    => $max_lat
 	,'bbox_bottom' => $min_lat
 	,'bbox_left'   => $min_lon
